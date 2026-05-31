@@ -25,23 +25,23 @@ Insurance-SuperSkill CLI v$Version
 用法: ins-cli <command> [options]
 
 命令:
-  install          安装/更新 Insurance-SuperSkill
-  uninstall        卸载 Insurance-SuperSkill
-  status           显示当前安装状态和版本信息
-  list             列出所有已安装的Skill
-  validate         验证所有SKILL.md格式
-  test             运行测试用例
-  update           更新到最新版本
-  doctor           运行健康检查
-  config           查看/修改配置
-  skill <name>     查看指定Skill详情
-  route <query>   测试路由规则
-  evolve           触发进化流程
-  audit            运行审计检查
-  export           导出所有Skill
-  import <path>    导入Skill包
-  help             显示此帮助信息
-  version          显示版本信息
+  install                    安装/更新 Insurance-SuperSkill
+  uninstall [--skill <name>] 卸载整个平台或单个 Skill
+  status                     显示当前安装状态和版本信息
+  list                       列出所有已安装的Skill
+  validate                   验证所有SKILL.md格式
+  test                       运行测试用例
+  update                     更新到最新版本
+  doctor                     运行健康检查
+  config                     查看/修改配置
+  skill <name>               查看指定Skill详情
+  route <query>             测试路由规则
+  evolve                     触发进化流程
+  audit                      运行审计检查
+  export                     导出所有Skill
+  import <path>              导入Skill包
+  help                       显示此帮助信息
+  version                    显示版本信息
 
 示例:
   ins-cli status
@@ -51,6 +51,7 @@ Insurance-SuperSkill CLI v$Version
   ins-cli test --smoke
   ins-cli doctor
   ins-cli export
+  ins-cli uninstall --skill ins-risk
 "@
 }
 
@@ -324,13 +325,81 @@ function Start-Install {
 }
 
 function Start-Uninstall {
-    Write-Host "=== 卸载 Insurance-SuperSkill ===" -ForegroundColor Yellow
-    if (Test-Path $InstallDir) {
-        Remove-Item $InstallDir -Recurse -Force -ErrorAction SilentlyContinue
-        Write-Host "已移除安装目录: $InstallDir" -ForegroundColor Green
-    } else {
-        Write-Host "安装目录不存在" -ForegroundColor Yellow
+    param([string]$SkillName)
+
+    if ([string]::IsNullOrEmpty($SkillName)) {
+        # 卸载整个平台
+        Write-Host "=== 卸载 Insurance-SuperSkill ===" -ForegroundColor Yellow
+        if (Test-Path $InstallDir) {
+            Remove-Item $InstallDir -Recurse -Force -ErrorAction SilentlyContinue
+            Write-Host "已移除安装目录: $InstallDir" -ForegroundColor Green
+        } else {
+            Write-Host "安装目录不存在" -ForegroundColor Yellow
+        }
+        return
     }
+
+    # 卸载单个 Skill
+    Write-Host "=== 卸载 Skill: $SkillName ===" -ForegroundColor Yellow
+    $skillDir = "$PSScriptRoot/../skills/$SkillName"
+
+    if (-not (Test-Path $skillDir)) {
+        Write-Host "Skill '$SkillName' 未安装" -ForegroundColor Red
+        return
+    }
+
+    # 1. 移除 Skill 目录
+    Remove-Item $skillDir -Recurse -Force
+    Write-Host "  [DONE] 已移除 Skill 目录" -ForegroundColor Green
+
+    # 2. 更新 manifest.json
+    $manifestPath = "$PSScriptRoot/../config/manifest.json"
+    if (Test-Path $manifestPath) {
+        $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+        if ($manifest.components.PSObject.Properties.Name -contains $SkillName) {
+            $manifest.components.PSObject.Properties.Remove($SkillName)
+            $manifest | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding UTF8
+            Write-Host "  [DONE] 已更新版本清单" -ForegroundColor Green
+        }
+    }
+
+    # 3. 更新 router.yaml
+    $routerPath = "$PSScriptRoot/../config/router.yaml"
+    if (Test-Path $routerPath) {
+        $lines = Get-Content $routerPath
+        $inBlock = $false
+        $newLines = @()
+        foreach ($line in $lines) {
+            if ($line -match "^  - id:\s*$SkillName") {
+                $inBlock = $true
+                continue
+            }
+            if ($inBlock -and $line -match "^\S") {
+                $inBlock = $false
+            }
+            if (-not $inBlock) {
+                $newLines += $line
+            }
+        }
+        $newLines | Set-Content $routerPath -Encoding UTF8
+        Write-Host "  [DONE] 已更新路由配置" -ForegroundColor Green
+    }
+
+    # 4. 移除测试文件
+    $smokeTest = "$PSScriptRoot/../tests/smoke/$SkillName.jsonl"
+    $regressionTest = "$PSScriptRoot/../tests/regression/$SkillName.jsonl"
+    if (Test-Path $smokeTest) { Remove-Item $smokeTest -Force }
+    if (Test-Path $regressionTest) { Remove-Item $regressionTest -Force }
+    Write-Host "  [DONE] 已移除测试用例" -ForegroundColor Green
+
+    # 5. 记录日志
+    $logDir = "$PSScriptRoot/../logs"
+    if (-not (Test-Path $logDir)) { New-Item -ItemType Directory -Path $logDir -Force | Out-Null }
+    $logEntry = @{ timestamp = (Get-Date -Format "yyyy-MM-dd HH:mm:ss"); action = "uninstall-skill"; skill = $SkillName } | ConvertTo-Json
+    Add-Content "$logDir/uninstall.log" $logEntry
+
+    Write-Host "`nSkill '$SkillName' 卸载完成" -ForegroundColor Green
+    Write-Host "原本路由到该 Skill 的请求将自动降级到 ins-knowledge (知识百科)" -ForegroundColor Cyan
 }
 
 # ============================================
@@ -425,7 +494,20 @@ switch ($Command.ToLower()) {
     "skill"     { Get-SkillDetail -SkillName $Args[0] }
     "route"     { Test-Route -Query ($Args -join " ") }
     "install"   { Start-Install }
-    "uninstall" { Start-Uninstall }
+    "uninstall" {
+        # 解析 --skill 参数
+        $skillFlag = $Args | Where-Object { $_ -match "^--skill=" } | ForEach-Object { ($_ -split "=", 2)[1] }
+        if (-not $skillFlag) {
+            $skillFlag = $Args | Where-Object { $_ -eq "--skill" }
+            if ($skillFlag) {
+                $idx = [array]::IndexOf($Args, "--skill")
+                if ($idx -ge 0 -and $idx + 1 -lt $Args.Count) {
+                    $skillFlag = $Args[$idx + 1]
+                }
+            }
+        }
+        Start-Uninstall -SkillName $skillFlag
+    }
     "update"    { Start-Update }
     "doctor"    { Start-Doctor }
     "config"    { Get-Config -Key $Args[0] }

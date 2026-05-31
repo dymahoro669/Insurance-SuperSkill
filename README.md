@@ -119,92 +119,21 @@ cd "$env:USERPROFILE\.insurance-super-skill\bin"
 
 ### 卸载整个平台
 
-#### 方式一：使用 CLI（推荐）
-
 ```powershell
 cd "$env:USERPROFILE\.insurance-super-skill\bin"
 .\ins-cli.ps1 uninstall
 ```
 
-输出示例：
-```
-=== 卸载 Insurance-SuperSkill ===
-已移除安装目录: C:\Users\<用户名>\.insurance-super-skill
-```
-
-#### 方式二：手动删除
-
-```powershell
-# 删除安装目录
-Remove-Item -Path "$env:USERPROFILE\.insurance-super-skill" -Recurse -Force
-
-# 如添加了 PATH，一并移除
-$currentPath = [Environment]::GetEnvironmentVariable('Path', 'User')
-$newPath = $currentPath -replace ';?[^;]*insurance-super-skill[^;]*'
-[Environment]::SetEnvironmentVariable('Path', $newPath, 'User')
-```
-
-#### 方式三：使用安装脚本中的卸载函数
-
-```powershell
-# 在安装目录下运行 PowerShell，导入卸载函数
-. "$env:USERPROFILE\.insurance-super-skill\install.ps1"
-Start-Uninstall
-```
-
 > **注意**：卸载会删除所有已安装的Skill、配置文件和测试数据，此操作不可恢复。
 
----
-
-### 卸载单个Skill
-
-如果你只想移除某个子Skill（例如 `ins-risk`），而不是卸载整个平台：
-
-#### 步骤1：删除Skill文件夹
+### 卸载单个 Skill
 
 ```powershell
-Remove-Item -Path "$env:USERPROFILE\.insurance-super-skill\skills\ins-risk" -Recurse -Force
+cd "$env:USERPROFILE\.insurance-super-skill\bin"
+.\ins-cli.ps1 uninstall --skill ins-risk
 ```
 
-#### 步骤2：更新清单文件
-
-编辑 `$env:USERPROFILE\.insurance-super-skill\config\manifest.json`，删除该Skill的条目：
-
-```json
-// 删除以下内容
-"ins-risk": { "version": "1.0.0", "type": "domain" },
-```
-
-#### 步骤3：更新路由配置
-
-编辑 `$env:USERPROFILE\.insurance-super-skill\config\router.yaml`，删除该Skill的路由规则：
-
-```yaml
-# 删除以下路由段
-  - id: risk
-    skill: ins-risk
-    keywords: [...]
-    weight: 1.0
-```
-
-#### 步骤4：更新测试文件（可选）
-
-```powershell
-# 删除对应的冒烟测试
-Remove-Item "$env:USERPROFILE\.insurance-super-skill\tests\smoke\ins-risk.jsonl"
-
-# 删除对应的回归测试
-Remove-Item "$env:USERPROFILE\.insurance-super-skill\tests\regression\ins-risk.jsonl"
-```
-
-#### 步骤5：验证
-
-```powershell
-.\ins-cli.ps1 validate
-.\ins-cli.ps1 doctor
-```
-
-> **提示**：卸载单个Skill后，主索引会自动将原本路由到该Skill的请求降级到 `ins-knowledge`（知识百科）兜底处理。
+CLI 会自动完成：移除 Skill 目录、更新版本清单、清理路由配置、删除测试用例，并将原本路由到该 Skill 的请求降级到 `ins-knowledge`（知识百科）兜底处理。
 
 ---
 
