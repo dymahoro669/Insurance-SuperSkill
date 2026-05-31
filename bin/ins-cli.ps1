@@ -38,6 +38,7 @@ Insurance-SuperSkill CLI v$Version
   route <query>             测试路由规则
   evolve                     触发进化流程
   audit                      运行审计检查
+  integrate [--all|--claude|--codex|--openclaw]  集成Skill到AI工具
   export                     导出所有Skill
   import <path>              导入Skill包
   help                       显示此帮助信息
@@ -482,6 +483,110 @@ function Start-Import {
 }
 
 # ============================================
+# AI Tool Integration
+# ============================================
+function Start-Integration {
+    param([string]$Target)
+
+    $skillsDir = "$PSScriptRoot/../skills"
+    $anyDone = $false
+
+    # --claude or --all
+    if ($Target -eq "--claude" -or $Target -eq "--all") {
+        Write-Host "=== 集成到 Claude Code ===" -ForegroundColor Cyan
+        $claudeSkillsDir = "$env:USERPROFILE\.claude\skills"
+        if (-not (Test-Path "$env:USERPROFILE\.claude")) {
+            Write-Host "  [SKIP] Claude Code 未安装" -ForegroundColor Yellow
+        } else {
+            if (-not (Test-Path $claudeSkillsDir)) {
+                New-Item -ItemType Directory -Path $claudeSkillsDir -Force | Out-Null
+            }
+            $count = 0
+            foreach ($dir in Get-ChildItem $skillsDir -Directory) {
+                $src = "$($dir.FullName)\SKILL.md"
+                $dst = "$claudeSkillsDir\$($dir.Name)\SKILL.md"
+                if (Test-Path $src) {
+                    New-Item -ItemType Directory -Path (Split-Path $dst) -Force | Out-Null
+                    Copy-Item $src $dst -Force
+                    $count++
+                }
+            }
+            Write-Host "  [DONE] 已集成 $count 个 Skill" -ForegroundColor Green
+            Write-Host "  位置: $claudeSkillsDir" -ForegroundColor Gray
+            $anyDone = $true
+        }
+    }
+
+    # --codex or --all
+    if ($Target -eq "--codex" -or $Target -eq "--all") {
+        Write-Host "=== 集成到 Codex ===" -ForegroundColor Cyan
+        $codexAgentsDir = "$env:USERPROFILE\.codex\agents"
+        if (-not (Test-Path "$env:USERPROFILE\.codex")) {
+            Write-Host "  [SKIP] Codex 未安装" -ForegroundColor Yellow
+        } else {
+            if (-not (Test-Path $codexAgentsDir)) {
+                New-Item -ItemType Directory -Path $codexAgentsDir -Force | Out-Null
+            }
+            $count = 0
+            foreach ($dir in Get-ChildItem $skillsDir -Directory) {
+                $src = "$($dir.FullName)\SKILL.md"
+                $dst = "$codexAgentsDir\$($dir.Name)\agent.md"
+                if (Test-Path $src) {
+                    New-Item -ItemType Directory -Path (Split-Path $dst) -Force | Out-Null
+                    Copy-Item $src $dst -Force
+                    $count++
+                }
+            }
+            Write-Host "  [DONE] 已集成 $count 个 Skill" -ForegroundColor Green
+            Write-Host "  位置: $codexAgentsDir" -ForegroundColor Gray
+            $anyDone = $true
+        }
+    }
+
+    # --openclaw or --all
+    if ($Target -eq "--openclaw" -or $Target -eq "--all") {
+        Write-Host "=== 集成到 OpenClaw ===" -ForegroundColor Cyan
+        $ocPaths = @(
+            "$env:USERPROFILE\.openclaw",
+            "$env:USERPROFILE\AppData\Roaming\openclaw",
+            "$env:LOCALAPPDATA\openclaw"
+        )
+        $ocDir = $null
+        foreach ($p in $ocPaths) { if (Test-Path $p) { $ocDir = $p; break } }
+
+        if (-not $ocDir) {
+            Write-Host "  [SKIP] OpenClaw 未安装" -ForegroundColor Yellow
+        } else {
+            $ocSkillsDir = "$ocDir\skills"
+            if (-not (Test-Path $ocSkillsDir)) {
+                New-Item -ItemType Directory -Path $ocSkillsDir -Force | Out-Null
+            }
+            $count = 0
+            foreach ($dir in Get-ChildItem $skillsDir -Directory) {
+                $src = "$($dir.FullName)\SKILL.md"
+                $dst = "$ocSkillsDir\$($dir.Name)\SKILL.md"
+                if (Test-Path $src) {
+                    New-Item -ItemType Directory -Path (Split-Path $dst) -Force | Out-Null
+                    Copy-Item $src $dst -Force
+                    $count++
+                }
+            }
+            Write-Host "  [DONE] 已集成 $count 个 Skill" -ForegroundColor Green
+            Write-Host "  位置: $ocSkillsDir" -ForegroundColor Gray
+            $anyDone = $true
+        }
+    }
+
+    if (-not $anyDone -and $Target -eq "") {
+        Write-Host "用法: ins-cli integrate [--all|--claude|--codex|--openclaw]" -ForegroundColor Yellow
+        Write-Host "  --all      集成到所有检测到的工具"
+        Write-Host "  --claude   集成到 Claude Code"
+        Write-Host "  --codex    集成到 Codex"
+        Write-Host "  --openclaw 集成到 OpenClaw"
+    }
+}
+
+# ============================================
 # Main Command Router
 # ============================================
 switch ($Command.ToLower()) {
@@ -513,6 +618,7 @@ switch ($Command.ToLower()) {
     "config"    { Get-Config -Key $Args[0] }
     "evolve"    { Start-Evolve }
     "audit"     { Start-Audit }
+    "integrate" { Start-Integration -Target $Args[0] }
     "export"    { Start-Export -OutputPath $Args[0] }
     "import"    { Start-Import -PackagePath $Args[0] }
     default     {

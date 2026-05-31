@@ -206,6 +206,143 @@ function Test-Cli {
     return $true
 }
 
+function Install-ToClaudeCode {
+    Write-Host "  检测 Claude Code..." -ForegroundColor Yellow
+    $claudeSkillsDir = "$env:USERPROFILE\.claude\skills"
+    if (-not (Test-Path "$env:USERPROFILE\.claude")) {
+        Write-Host "    [SKIP] Claude Code 未安装" -ForegroundColor Gray
+        return $false
+    }
+
+    if (-not (Test-Path $claudeSkillsDir)) {
+        New-Item -ItemType Directory -Path $claudeSkillsDir -Force | Out-Null
+    }
+
+    $skillsDir = "$InstallDir\skills"
+    $integrated = 0
+    foreach ($skillDir in Get-ChildItem $skillsDir -Directory) {
+        $skillName = $skillDir.Name
+        $sourceFile = "$($skillDir.FullName)\SKILL.md"
+        $targetDir = "$claudeSkillsDir\$skillName"
+
+        if (Test-Path $sourceFile) {
+            New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+            Copy-Item $sourceFile "$targetDir\SKILL.md" -Force
+            $integrated++
+        }
+    }
+
+    if ($integrated -gt 0) {
+        Write-Host "    [DONE] 已集成 $integrated 个 Skill 到 Claude Code" -ForegroundColor Green
+        Write-Host "    位置: $claudeSkillsDir" -ForegroundColor Gray
+        return $true
+    }
+    return $false
+}
+
+function Install-ToCodex {
+    Write-Host "  检测 Codex..." -ForegroundColor Yellow
+    $codexDir = "$env:USERPROFILE\.codex"
+    if (-not (Test-Path $codexDir)) {
+        Write-Host "    [SKIP] Codex 未安装" -ForegroundColor Gray
+        return $false
+    }
+
+    # Codex agent format: ~/.codex/agents/<name>/agent.md
+    $codexAgentsDir = "$codexDir\agents"
+    if (-not (Test-Path $codexAgentsDir)) {
+        New-Item -ItemType Directory -Path $codexAgentsDir -Force | Out-Null
+    }
+
+    $skillsDir = "$InstallDir\skills"
+    $integrated = 0
+    foreach ($skillDir in Get-ChildItem $skillsDir -Directory) {
+        $skillName = $skillDir.Name
+        $sourceFile = "$($skillDir.FullName)\SKILL.md"
+        $targetDir = "$codexAgentsDir\$skillName"
+
+        if (Test-Path $sourceFile) {
+            New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+            Copy-Item $sourceFile "$targetDir\agent.md" -Force
+            $integrated++
+        }
+    }
+
+    if ($integrated -gt 0) {
+        Write-Host "    [DONE] 已集成 $integrated 个 Skill 到 Codex" -ForegroundColor Green
+        Write-Host "    位置: $codexAgentsDir" -ForegroundColor Gray
+        return $true
+    }
+    return $false
+}
+
+function Install-ToOpenClaw {
+    Write-Host "  检测 OpenClaw..." -ForegroundColor Yellow
+    # OpenClaw 常见安装路径
+    $openClawPaths = @(
+        "$env:USERPROFILE\.openclaw",
+        "$env:USERPROFILE\AppData\Roaming\openclaw",
+        "$env:LOCALAPPDATA\openclaw"
+    )
+    $openClawDir = $null
+    foreach ($path in $openClawPaths) {
+        if (Test-Path $path) {
+            $openClawDir = $path
+            break
+        }
+    }
+
+    if (-not $openClawDir) {
+        Write-Host "    [SKIP] OpenClaw 未安装" -ForegroundColor Gray
+        return $false
+    }
+
+    # OpenClaw skill format: ~/.openclaw/skills/<name>/SKILL.md
+    $openClawSkillsDir = "$openClawDir\skills"
+    if (-not (Test-Path $openClawSkillsDir)) {
+        New-Item -ItemType Directory -Path $openClawSkillsDir -Force | Out-Null
+    }
+
+    $skillsDir = "$InstallDir\skills"
+    $integrated = 0
+    foreach ($skillDir in Get-ChildItem $skillsDir -Directory) {
+        $skillName = $skillDir.Name
+        $sourceFile = "$($skillDir.FullName)\SKILL.md"
+        $targetDir = "$openClawSkillsDir\$skillName"
+
+        if (Test-Path $sourceFile) {
+            New-Item -ItemType Directory -Path $targetDir -Force | Out-Null
+            Copy-Item $sourceFile "$targetDir\SKILL.md" -Force
+            $integrated++
+        }
+    }
+
+    if ($integrated -gt 0) {
+        Write-Host "    [DONE] 已集成 $integrated 个 Skill 到 OpenClaw" -ForegroundColor Green
+        Write-Host "    位置: $openClawSkillsDir" -ForegroundColor Gray
+        return $true
+    }
+    return $false
+}
+
+function Initialize-Integration {
+    Write-Host "[7/6] 集成到 AI 工具..." -ForegroundColor Yellow
+    $anyIntegrated = $false
+
+    $cc = Install-ToClaudeCode
+    $codex = Install-ToCodex
+    $oc = Install-ToOpenClaw
+
+    if ($cc -or $codex -or $oc) {
+        $anyIntegrated = $true
+    } else {
+        Write-Host "  未检测到支持的 AI 工具" -ForegroundColor Yellow
+        Write-Host "  安装完成后可手动运行: .\ins-cli.ps1 integrate --claude" -ForegroundColor Gray
+    }
+
+    return $anyIntegrated
+}
+
 function Complete-Install {
     Write-Host "[6/6] 安装完成..." -ForegroundColor Yellow
     Write-Host ""
@@ -219,6 +356,12 @@ function Complete-Install {
     Write-Host "  .\ins-cli.ps1 list      - 列出所有Skill"
     Write-Host "  .\ins-cli.ps1 validate  - 验证格式"
     Write-Host "  .\ins-cli.ps1 help      - 查看帮助"
+    Write-Host ""
+    Write-Host "AI 工具集成:"
+    Write-Host "  .\ins-cli.ps1 integrate --claude    - 集成到 Claude Code"
+    Write-Host "  .\ins-cli.ps1 integrate --codex     - 集成到 Codex"
+    Write-Host "  .\ins-cli.ps1 integrate --openclaw  - 集成到 OpenClaw"
+    Write-Host "  .\ins-cli.ps1 integrate --all       - 集成到所有检测到的工具"
     Write-Host ""
     Write-Host "或者添加到 PATH:"
     Write-Host "  [Environment]::SetEnvironmentVariable('Path', `$env:Path + ';$InstallDir\bin', 'User')"
@@ -240,6 +383,7 @@ if (-not $filesOk) {
 Initialize-Security
 $healthOk = Test-Health
 $cliOk = Test-Cli
+Initialize-Integration | Out-Null
 
 if ($healthOk -and $cliOk) {
     Complete-Install
