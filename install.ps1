@@ -343,6 +343,53 @@ function Initialize-Integration {
     return $anyIntegrated
 }
 
+function Install-PlatformServer {
+    Write-Host "[8/6] 安装平台服务..." -ForegroundColor Yellow
+
+    # 检测 Python
+    $python = Get-Command python -ErrorAction SilentlyContinue
+    if (-not $python) {
+        $python = Get-Command python3 -ErrorAction SilentlyContinue
+    }
+    if (-not $python) {
+        Write-Host "  [WARN] Python 未安装，跳过平台服务" -ForegroundColor Yellow
+        Write-Host "  平台服务需要 Python 3.9+，请从 https://python.org 下载安装" -ForegroundColor Gray
+        return $false
+    }
+
+    $pythonVersion = & $python.Source --version 2>&1
+    Write-Host "  检测到: $pythonVersion" -ForegroundColor Green
+
+    $platformDir = "$InstallDir\platform\server"
+    if (-not (Test-Path "$platformDir\requirements.txt")) {
+        Write-Host "  [WARN] 平台服务端代码缺失" -ForegroundColor Yellow
+        return $false
+    }
+
+    Write-Host "  安装 Python 依赖..." -ForegroundColor Yellow
+    try {
+        & $python.Source -m pip install -q -r "$platformDir\requirements.txt" 2>&1 | Out-Null
+        Write-Host "  [PASS] 依赖安装完成" -ForegroundColor Green
+    } catch {
+        Write-Host "  [WARN] 依赖安装失败: $_" -ForegroundColor Yellow
+        return $false
+    }
+
+    # 创建启动脚本
+    $startScript = "$InstallDir\start-platform.ps1"
+    @"
+# Insurance-SuperSkill Platform 启动脚本
+`$platformDir = "$InstallDir\platform\server"
+cd `$platformDir
+python -m uvicorn main:app --host 127.0.0.1 --port 8080 --reload
+"@ | Set-Content $startScript -Encoding UTF8
+
+    Write-Host "  [DONE] 平台服务已就绪" -ForegroundColor Green
+    Write-Host "  启动命令: .\start-platform.ps1" -ForegroundColor Gray
+    Write-Host "  Dashboard: http://127.0.0.1:8080/dashboard" -ForegroundColor Gray
+    return $true
+}
+
 function Complete-Install {
     Write-Host "[6/6] 安装完成..." -ForegroundColor Yellow
     Write-Host ""
@@ -384,6 +431,7 @@ Initialize-Security
 $healthOk = Test-Health
 $cliOk = Test-Cli
 Initialize-Integration | Out-Null
+Install-PlatformServer | Out-Null
 
 if ($healthOk -and $cliOk) {
     Complete-Install
