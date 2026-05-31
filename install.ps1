@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env pwsh
+#!/usr/bin/env pwsh
 # Insurance-SuperSkill 一键安装脚本
 # 用法: irm https://raw.githubusercontent.com/dymahoro669/Insurance-SuperSkill/main/install.ps1 | iex
 
