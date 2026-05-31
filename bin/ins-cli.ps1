@@ -58,7 +58,7 @@ Insurance-SuperSkill CLI v$Version
 function Show-Version {
     Write-Host "Insurance-SuperSkill CLI v$Version"
     if (Test-Path $ManifestPath) {
-        $manifest = Get-Content $ManifestPath | ConvertFrom-Json
+        $manifest = Get-Content $ManifestPath -Encoding UTF8 | ConvertFrom-Json
         Write-Host "Platform: $($manifest.name) v$($manifest.version)"
     }
 }
@@ -69,7 +69,7 @@ function Show-Version {
 function Get-Status {
     Write-Host "=== Insurance-SuperSkill 状态 ==="
     if (Test-Path $ManifestPath) {
-        $manifest = Get-Content $ManifestPath | ConvertFrom-Json
+        $manifest = Get-Content $ManifestPath -Encoding UTF8 | ConvertFrom-Json
         Write-Host "平台版本: $($manifest.version)"
         Write-Host "组件数量: $($manifest.components.PSObject.Properties.Count)"
         Write-Host "安全级别: $($manifest.security.data_collection)"
@@ -300,7 +300,7 @@ function Get-Config {
     } else {
         foreach ($f in $configFiles) {
             if (Test-Path $f) {
-                $content = Get-Content $f -Raw | ConvertFrom-Json
+                $content = Get-Content $f -Raw -Encoding UTF8 | ConvertFrom-Json
                 if ($content.PSObject.Properties.Name -contains $Key) {
                     Write-Host "$Key = $($content.$Key)"
                     return
@@ -355,7 +355,7 @@ function Start-Uninstall {
     # 2. 更新 manifest.json
     $manifestPath = "$PSScriptRoot/../config/manifest.json"
     if (Test-Path $manifestPath) {
-        $manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+        $manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
         if ($manifest.components.PSObject.Properties.Name -contains $SkillName) {
             $manifest.components.PSObject.Properties.Remove($SkillName)
             $manifest | ConvertTo-Json -Depth 10 | Set-Content $manifestPath -Encoding UTF8

@@ -125,7 +125,7 @@ function Initialize-Security {
     # 加载PII模式
     $piiFile = "$InstallDir\security\pii-patterns.json"
     if (Test-Path $piiFile) {
-        $piiConfig = Get-Content $piiFile -Raw | ConvertFrom-Json
+        $piiConfig = Get-Content $piiFile -Raw -Encoding UTF8 | ConvertFrom-Json
         Write-Host "  - PII脱敏引擎: 已启用 ($($piiConfig.patterns.Count)类模式)"
     } else {
         Write-Host "  - PII脱敏引擎: [WARN] 配置文件缺失" -ForegroundColor Yellow
@@ -134,7 +134,7 @@ function Initialize-Security {
     # 加载合规黑名单
     $blFile = "$InstallDir\security\compliance-blacklist.json"
     if (Test-Path $blFile) {
-        $blConfig = Get-Content $blFile -Raw | ConvertFrom-Json
+        $blConfig = Get-Content $blFile -Raw -Encoding UTF8 | ConvertFrom-Json
         $totalPatterns = 0
         foreach ($cat in $blConfig.categories.PSObject.Properties) {
             $totalPatterns += $cat.Value.patterns.Count
