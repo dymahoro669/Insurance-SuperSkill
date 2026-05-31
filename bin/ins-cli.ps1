@@ -41,6 +41,7 @@ Insurance-SuperSkill CLI v$Version
   integrate [--all|--claude|--codex|--openclaw]  集成Skill到AI工具
   export                     导出所有Skill
   import <path>              导入Skill包
+  report                     遥测上报与评价触发
   help                       显示此帮助信息
   version                    显示版本信息
 
@@ -53,6 +54,11 @@ Insurance-SuperSkill CLI v$Version
   ins-cli doctor
   ins-cli export
   ins-cli uninstall --skill ins-risk
+
+  ins-cli report --event '{"event_id":"evt-001","primary_skill":"ins-risk","l1_score":45,"l1_verdict":"fail"}'
+  ins-cli report --l2 --event-id evt-001
+  ins-cli report --l3 --event-id evt-001
+  ins-cli report --auto
 "@
 }
 
@@ -587,6 +593,82 @@ function Start-Integration {
 }
 
 # ============================================
+# Report (Telemetry & Evaluation)
+# ============================================
+function Start-Report {
+    param(
+        [string]$EventJson,
+        [string]$EventId,
+        [switch]$L2,
+        [switch]$L3,
+        [switch]$Auto
+    )
+
+    $platformUrl = "http://127.0.0.1:8080"
+    $clientDir = "$PSScriptRoot/../platform/client"
+
+    if ($Auto) {
+        Write-Host "=== 启动自动评价触发器 ===" -ForegroundColor Cyan
+        $py = (Get-Command python -ErrorAction SilentlyContinue).Source
+        if (-not $py) { $py = (Get-Command python3 -ErrorAction SilentlyContinue).Source }
+        if (-not $py) {
+            Write-Host "错误: 未找到 python 或 python3" -ForegroundColor Red
+            return
+        }
+        & $py "$clientDir/auto_evaluator.py" --platform-url $platformUrl --daemon
+        return
+    }
+
+    if ($EventJson) {
+        Write-Host "=== 手动上报遥测事件 ===" -ForegroundColor Cyan
+        try {
+            $payload = $EventJson | ConvertFrom-Json
+        } catch {
+            Write-Host "错误: 无效的 JSON 输入" -ForegroundColor Red
+            return
+        }
+        $body = $payload | ConvertTo-Json -Depth 10 -Compress
+        try {
+            $resp = Invoke-RestMethod -Uri "$platformUrl/api/v1/telemetry/events" -Method Post -Body $body -ContentType "application/json"
+            Write-Host "上报成功: $($resp | ConvertTo-Json -Compress)" -ForegroundColor Green
+        } catch {
+            Write-Host "上报失败: $_" -ForegroundColor Red
+        }
+        return
+    }
+
+    if ($EventId -and $L2) {
+        Write-Host "=== 手动触发 L2 评价 ===" -ForegroundColor Cyan
+        try {
+            $resp = Invoke-RestMethod -Uri "$platformUrl/api/v1/evaluator/auto-l2?event_id=$EventId" -Method Post
+            Write-Host "L2 评价已触发: $($resp | ConvertTo-Json -Compress)" -ForegroundColor Green
+        } catch {
+            Write-Host "L2 触发失败: $_" -ForegroundColor Red
+        }
+        return
+    }
+
+    if ($EventId -and $L3) {
+        Write-Host "=== 手动触发 L3 评价 ===" -ForegroundColor Cyan
+        # L3 需要先有 L2；调用 Python 脚本处理完整流程
+        $py = (Get-Command python -ErrorAction SilentlyContinue).Source
+        if (-not $py) { $py = (Get-Command python3 -ErrorAction SilentlyContinue).Source }
+        if (-not $py) {
+            Write-Host "错误: 未找到 python 或 python3" -ForegroundColor Red
+            return
+        }
+        & $py "$clientDir/auto_evaluator.py" --platform-url $platformUrl --event-id $EventId --l3
+        return
+    }
+
+    Write-Host "用法:" -ForegroundColor Yellow
+    Write-Host "  ins-cli report --event '<json>'        手动上报事件"
+    Write-Host "  ins-cli report --l2 --event-id <id>   手动触发L2评价"
+    Write-Host "  ins-cli report --l3 --event-id <id>   手动触发L3评价"
+    Write-Host "  ins-cli report --auto                  启动自动评价触发器(后台)"
+}
+
+# ============================================
 # Main Command Router
 # ============================================
 switch ($Command.ToLower()) {
@@ -621,6 +703,32 @@ switch ($Command.ToLower()) {
     "integrate" { Start-Integration -Target $Args[0] }
     "export"    { Start-Export -OutputPath $Args[0] }
     "import"    { Start-Import -PackagePath $Args[0] }
+    "report"    {
+        $eventJson = $Args | Where-Object { $_ -match "^--event=" } | ForEach-Object { ($_ -split "=", 2)[1] }
+        if (-not $eventJson) {
+            $eventJson = $Args | Where-Object { $_ -eq "--event" }
+            if ($eventJson) {
+                $idx = [array]::IndexOf($Args, "--event")
+                if ($idx -ge 0 -and $idx + 1 -lt $Args.Count) {
+                    $eventJson = $Args[$idx + 1]
+                }
+            }
+        }
+        $eventId = $Args | Where-Object { $_ -match "^--event-id=" } | ForEach-Object { ($_ -split "=", 2)[1] }
+        if (-not $eventId) {
+            $eventId = $Args | Where-Object { $_ -eq "--event-id" }
+            if ($eventId) {
+                $idx = [array]::IndexOf($Args, "--event-id")
+                if ($idx -ge 0 -and $idx + 1 -lt $Args.Count) {
+                    $eventId = $Args[$idx + 1]
+                }
+            }
+        }
+        $doL2 = [bool]($Args | Where-Object { $_ -eq "--l2" })
+        $doL3 = [bool]($Args | Where-Object { $_ -eq "--l3" })
+        $doAuto = [bool]($Args | Where-Object { $_ -eq "--auto" })
+        Start-Report -EventJson $eventJson -EventId $eventId -L2:$doL2 -L3:$doL3 -Auto:$doAuto
+    }
     default     {
         if ([string]::IsNullOrEmpty($Command)) {
             Show-Help
