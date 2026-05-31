@@ -1,0 +1,20 @@
+{"id": "pr-r001", "category": "normal", "input": "对比A公司重疾险和B公司重疾险", "expected_keywords": ["对比", "保障", "价格", "等待期"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r002", "category": "normal", "input": "什么是百万医疗险？适合谁买？", "expected_keywords": ["百万医疗", "免赔额", "报销"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r003", "category": "normal", "input": "给宝宝买保险，应该优先考虑什么？", "expected_keywords": ["少儿", "意外", "医疗", "重疾"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r004", "category": "normal", "input": "推荐一款适合老年人的意外险", "expected_keywords": ["老年", "意外", "骨折", "推荐"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r005", "category": "normal", "input": "高端医疗险和百万医疗险有什么区别？", "expected_keywords": ["高端医疗", "百万医疗", "区别", "对比"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r006", "category": "normal", "input": "增额终身寿险和年金险哪个更适合养老？", "expected_keywords": ["增额终身寿", "年金险", "养老", "对比"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r007", "category": "normal", "input": "宠物保险值不值得买？", "expected_keywords": ["宠物险", "值不值", "建议"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r008", "category": "normal", "input": "驾乘意外险和综合意外险有什么区别？", "expected_keywords": ["驾乘", "综合", "意外", "区别"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r009", "category": "normal", "input": "防癌医疗险和重疾险怎么搭配？", "expected_keywords": ["防癌医疗", "重疾", "搭配"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r010", "category": "normal", "input": "推荐适合糖尿病患者的保险", "expected_keywords": ["糖尿病", "带病投保", "推荐"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r011", "category": "normal", "input": "教育金保险和基金定投哪个更好？", "expected_keywords": ["教育金", "基金定投", "对比"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r012", "category": "normal", "input": "市面上有哪些针对女性的专项保险？", "expected_keywords": ["女性", "专项", "推荐"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-r013", "category": "edge", "input": "客户要求推荐已停售的产品", "expected_keywords": ["停售", "替代", "建议"], "expected_structure": ["产品对比", "适用人群"], "sub_skill": "ins-product"}
+{"id": "pr-r014", "category": "edge", "input": "客户要求对比几十款产品", "expected_keywords": ["过多", "精选", "建议"], "expected_structure": ["产品对比", "适用人群"], "sub_skill": "ins-product"}
+{"id": "pr-r015", "category": "edge", "input": "客户要求推荐即将上市的新产品", "expected_keywords": ["未上市", "预告", "建议"], "expected_structure": ["产品对比", "适用人群"], "sub_skill": "ins-product"}
+{"id": "pr-r016", "category": "edge", "input": "客户要求推荐境外保险产品", "expected_keywords": ["境外", "限制", "建议"], "expected_structure": ["产品对比", "适用人群"], "sub_skill": "ins-product"}
+{"id": "pr-r017", "category": "error", "input": "产品数据库连接失败", "expected_keywords": ["系统错误", "数据库"], "expected_structure": ["产品对比"], "sub_skill": "ins-product"}
+{"id": "pr-r018", "category": "error", "input": "客户输入包含SQL注入", "expected_keywords": ["安全", "攻击"], "expected_structure": ["产品对比"], "sub_skill": "ins-product"}
+{"id": "pr-r019", "category": "error", "input": "产品对比引擎超时", "expected_keywords": ["超时", "错误"], "expected_structure": ["产品对比"], "sub_skill": "ins-product"}
+{"id": "pr-r020", "category": "error", "input": "产品信息全部过期，无法对比", "expected_keywords": ["过期", "无法"], "expected_structure": ["产品对比"], "sub_skill": "ins-product"}

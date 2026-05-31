@@ -1,0 +1,20 @@
+{"id": "sv-r001", "category": "normal", "input": "客户询问理赔进度，已报案7天", "expected_keywords": ["理赔", "进度", "查询"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r002", "category": "normal", "input": "客户投诉客服态度差", "expected_keywords": ["投诉", "道歉", "处理"], "expected_structure": ["标准回答", "处理流程", "升级建议"], "sub_skill": "ins-service"}
+{"id": "sv-r003", "category": "normal", "input": "客户要求投诉到银保监会", "expected_keywords": ["银保监会", "升级", "处理"], "expected_structure": ["标准回答", "处理流程", "升级建议"], "sub_skill": "ins-service"}
+{"id": "sv-r004", "category": "normal", "input": "客户咨询保单贷款还款方式", "expected_keywords": ["保单贷款", "还款", "方式"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r005", "category": "normal", "input": "客户询问犹豫期退保流程", "expected_keywords": ["犹豫期", "退保", "流程"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r006", "category": "normal", "input": "客户要求变更手机号码", "expected_keywords": ["手机号", "变更", "手续"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r007", "category": "normal", "input": "客户询问保费逾期未交怎么办", "expected_keywords": ["逾期", "宽限期", "失效"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r008", "category": "normal", "input": "客户要求开具保险费发票", "expected_keywords": ["发票", "申请", "流程"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r009", "category": "normal", "input": "客户询问红利分配方式", "expected_keywords": ["红利", "分配", "方式"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r010", "category": "normal", "input": "客户要求发送电子保单", "expected_keywords": ["电子保单", "发送", "邮箱"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r011", "category": "normal", "input": "客户咨询保险理赔时效规定", "expected_keywords": ["理赔时效", "30日", "规定"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r012", "category": "normal", "input": "客户要求预约保险顾问上门服务", "expected_keywords": ["预约", "顾问", "上门"], "expected_structure": ["标准回答", "处理流程", "下一步"], "sub_skill": "ins-service"}
+{"id": "sv-r013", "category": "edge", "input": "客户情绪激动，反复要求不合理赔偿", "expected_keywords": ["情绪", "安抚", "不合理"], "expected_structure": ["标准回答", "处理流程", "升级建议"], "sub_skill": "ins-service"}
+{"id": "sv-r014", "category": "edge", "input": "客户使用方言，系统无法理解", "expected_keywords": ["方言", "无法", "建议"], "expected_structure": ["标准回答", "处理流程"], "sub_skill": "ins-service"}
+{"id": "sv-r015", "category": "edge", "input": "客户要求客服立即给出最终处理结果", "expected_keywords": ["立即", "时限", "流程"], "expected_structure": ["标准回答", "处理流程"], "sub_skill": "ins-service"}
+{"id": "sv-r016", "category": "edge", "input": "客户同时提出10个不相关的问题", "expected_keywords": ["多个", "逐一", "建议"], "expected_structure": ["标准回答", "处理流程"], "sub_skill": "ins-service"}
+{"id": "sv-r017", "category": "error", "input": "客服系统全部坐席忙，无法接入", "expected_keywords": ["忙线", "无法"], "expected_structure": ["标准回答"], "sub_skill": "ins-service"}
+{"id": "sv-r018", "category": "error", "input": "语音识别系统故障，无法转录客户语音", "expected_keywords": ["故障", "无法"], "expected_structure": ["标准回答"], "sub_skill": "ins-service"}
+{"id": "sv-r019", "category": "error", "input": "客户信息查询系统宕机", "expected_keywords": ["宕机", "系统错误"], "expected_structure": ["标准回答"], "sub_skill": "ins-service"}
+{"id": "sv-r020", "category": "error", "input": "客户输入包含辱骂性语言", "expected_keywords": ["辱骂", "违规"], "expected_structure": ["标准回答"], "sub_skill": "ins-service"}

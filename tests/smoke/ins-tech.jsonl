@@ -1,0 +1,5 @@
+{"id": "tc-001", "category": "normal", "input": "配置Guidewire核保工作流，增加自动核保规则", "expected_keywords": ["工作流步骤", "规则配置", "触发条件"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-002", "category": "normal", "input": "设计车险理赔数据从核心系统到数据仓库的ETL流程", "expected_keywords": ["数据源映射", "转换规则", "调度方案"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-003", "category": "normal", "input": "生成ACORD标准保单数据交换接口方案", "expected_keywords": ["ACORD", "API设计", "字段对照"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-004", "category": "normal", "input": "配置PDF投保单自动填充，从CRM系统取数", "expected_keywords": ["表单字段", "数据源连接", "异常处理"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-005", "category": "edge", "input": "系统版本不兼容导致集成失败", "expected_keywords": ["兼容性", "升级建议", "替代方案"], "expected_structure": ["技术方案", "注意事项"], "sub_skill": "ins-tech"}

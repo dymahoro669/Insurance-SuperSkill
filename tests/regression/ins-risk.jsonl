@@ -1,0 +1,20 @@
+{"id": "rk-r001", "category": "normal", "input": "评估某地区台风巨灾风险，历史10年损失数据", "expected_keywords": ["巨灾", "台风", "风险"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r002", "category": "normal", "input": "分析网络保险业务的数据安全风险", "expected_keywords": ["网络", "数据安全", "风险"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r003", "category": "normal", "input": "评估气候变化对农业保险的影响", "expected_keywords": ["气候", "农业", "影响"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r004", "category": "normal", "input": "检查是否超过某业务线的风险限额", "expected_keywords": ["限额", "超标", "检查"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r005", "category": "normal", "input": "评估新冠疫情对人身险赔付的潜在影响", "expected_keywords": ["疫情", "人身险", "赔付"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r006", "category": "normal", "input": "分析再保险合约的累积风险暴露", "expected_keywords": ["再保险", "累积", "暴露"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r007", "category": "normal", "input": "评估投资连结保险的市场风险", "expected_keywords": ["投连险", "市场", "风险"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r008", "category": "normal", "input": "分析长寿风险对年金负债的影响", "expected_keywords": ["长寿", "年金", "负债"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r009", "category": "normal", "input": "评估保险欺诈风险的识别模型效果", "expected_keywords": ["欺诈", "识别", "模型"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r010", "category": "normal", "input": "分析利率风险对寿险准备金的影响", "expected_keywords": ["利率", "准备金", "影响"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r011", "category": "normal", "input": "评估操作风险中的系统故障场景", "expected_keywords": ["操作风险", "系统故障", "场景"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r012", "category": "normal", "input": "分析信用风险对保证保险的影响", "expected_keywords": ["信用", "保证", "影响"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-r013", "category": "edge", "input": "历史数据不足，无法建立可靠的风险模型", "expected_keywords": ["数据不足", "模型"], "expected_structure": ["风险识别", "评估方法"], "sub_skill": "ins-risk"}
+{"id": "rk-r014", "category": "edge", "input": "风险事件之间高度相关，传统分散化假设失效", "expected_keywords": ["相关", "失效"], "expected_structure": ["风险识别", "评估方法"], "sub_skill": "ins-risk"}
+{"id": "rk-r015", "category": "edge", "input": "新兴风险类型，缺乏历史数据和评估方法", "expected_keywords": ["新兴", "缺乏"], "expected_structure": ["风险识别", "评估方法"], "sub_skill": "ins-risk"}
+{"id": "rk-r016", "category": "edge", "input": "模型输出与专家判断存在重大分歧", "expected_keywords": ["分歧", "模型"], "expected_structure": ["风险识别", "评估方法"], "sub_skill": "ins-risk"}
+{"id": "rk-r017", "category": "error", "input": "风险计算引擎因数据溢出而崩溃", "expected_keywords": ["崩溃", "溢出"], "expected_structure": ["风险识别"], "sub_skill": "ins-risk"}
+{"id": "rk-r018", "category": "error", "input": "输入参数超出模型有效范围", "expected_keywords": ["超出", "范围"], "expected_structure": ["风险识别"], "sub_skill": "ins-risk"}
+{"id": "rk-r019", "category": "error", "input": "风险数据库连接超时", "expected_keywords": ["超时", "连接"], "expected_structure": ["风险识别"], "sub_skill": "ins-risk"}
+{"id": "rk-r020", "category": "error", "input": "蒙特卡洛模拟迭代次数设置错误导致结果不收敛", "expected_keywords": ["不收敛", "错误"], "expected_structure": ["风险识别"], "sub_skill": "ins-risk"}

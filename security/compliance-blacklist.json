@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "description": "合规红线关键词库 — 禁止在输出中出现的误导性/违规表述",
+  "categories": {
+    "absolute_guarantee": {
+      "severity": "critical",
+      "description": "绝对性承诺，违反保险法第116条",
+      "patterns": [
+        "保证理赔", "100%理赔", "绝对安全", "绝对保障", "零风险", "稳赚不赔",
+        "必定赔付", "肯定能赔", "万无一失", "绝对没有风险", "保本保息",
+        "保证收益率", "承诺收益", "稳赚", "必赚", "guaranteed payout",
+        "100% coverage", "absolute guarantee", "risk free", "zero risk"
+      ]
+    },
+    "misleading_comparison": {
+      "severity": "high",
+      "description": "误导性比较或贬低同业",
+      "patterns": [
+        "最好", "第一", "最优", "最便宜", "最划算", "碾压", "吊打", "秒杀",
+        "遥遥领先", "行业第一", "排名第一", "性价比最高", "无对手",
+        "best insurance", "cheapest", "number one", "top rated",
+        "far superior", "unbeatable"
+      ]
+    },
+    "unauthorized_advice": {
+      "severity": "critical",
+      "description": "未经授权的专业建议",
+      "patterns": [
+        "建议退保", "应该退保", "必须退保", "赶紧退", "退保最划算",
+        "建议投诉", "应该举报", "必须起诉", "打官司一定能赢",
+        "建议不要告知", "不用告知", "隐瞒没事", "不用申报",
+        "recommend surrender", "must sue", "don't disclose"
+      ]
+    },
+    "discriminatory": {
+      "severity": "high",
+      "description": "歧视性表述",
+      "patterns": [
+        "高龄不能买", "老人不行", "女性贵", "男性风险高", "某地区不赔",
+        "歧视", "区别对待", "有色人种", "race based", "gender bias"
+      ]
+    },
+    "privacy_leak": {
+      "severity": "critical",
+      "description": "泄露他人隐私",
+      "patterns": [
+        "身份证号", "手机号", "具体客户信息", "真实案例含PII",
+        "某某的客户", "内部数据", "未公开信息"
+      ]
+    },
+    "false_authority": {
+      "severity": "high",
+      "description": "虚假权威背书",
+      "patterns": [
+        "监管推荐", "政府指定", "银保监会认证", "官方唯一",
+        "监管要求必须", "政府补贴", "endorsement by regulator",
+        "government approved"
+      ]
+    }
+  },
+  "penalty": {
+    "critical_per_occurrence": 25,
+    "high_per_occurrence": 15,
+    "medium_per_occurrence": 10
+  }
+}

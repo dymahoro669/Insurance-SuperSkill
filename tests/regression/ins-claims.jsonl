@@ -1,0 +1,20 @@
+{"id": "cl-r001", "category": "normal", "input": "客户车祸导致左腿骨折，已提交交警事故认定书和医院诊断证明", "expected_keywords": ["意外险", "骨折", "材料清单", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r002", "category": "normal", "input": "客户确诊急性心肌梗死，提交心电图和心肌酶报告", "expected_keywords": ["重疾险", "心肌梗死", "重疾定义", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r003", "category": "normal", "input": "客户住院阑尾炎手术，总费用15000元，医保报销9000元", "expected_keywords": ["医疗险", "自费", "免赔额", "赔付比例"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r004", "category": "normal", "input": "客户意外身故，家属提交死亡证明、户籍注销证明和受益人身份证明", "expected_keywords": ["寿险", "身故", "受益人", "死亡证明"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r005", "category": "normal", "input": "客户车辆被撞，提交4S店维修清单（定损金额35000元）", "expected_keywords": ["车险", "定损", "维修", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r006", "category": "normal", "input": "客户烧伤面积达25%，提交烧伤面积鉴定报告", "expected_keywords": ["意外险", "烧伤", "伤残等级", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r007", "category": "normal", "input": "客户确诊为脑中风后遗症，提交CT/MRI报告和180天后复查报告", "expected_keywords": ["重疾险", "脑中风", "后遗症", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r008", "category": "normal", "input": "客户门急诊看感冒，提交门诊病历和发票（费用800元）", "expected_keywords": ["门急诊", "免赔额", "赔付"], "expected_structure": ["材料清单", "结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r009", "category": "normal", "input": "客户高空坠落导致脊柱损伤，提交工伤认定和伤残鉴定", "expected_keywords": ["意外险", "工伤", "伤残鉴定", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r010", "category": "normal", "input": "客户尿毒症透析治疗，提交透析记录和肾功能报告", "expected_keywords": ["重疾险", "尿毒症", "透析", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r011", "category": "normal", "input": "客户意外导致右眼失明，提交眼科诊断和视力检查报告", "expected_keywords": ["意外险", "失明", "伤残", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r012", "category": "normal", "input": "客户甲状腺癌术后复查，提交术后病理报告（乳头状癌）", "expected_keywords": ["重疾险", "甲状腺癌", "病理", "赔付"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-r013", "category": "edge", "input": "客户提交的材料全是复印件且无公章", "expected_keywords": ["材料无效", "需补充", "原件"], "expected_structure": ["材料清单", "结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r014", "category": "edge", "input": "客户出险日期与保单生效日相差仅1天", "expected_keywords": ["等待期", "生效日", "争议"], "expected_structure": ["结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r015", "category": "edge", "input": "客户理赔金额刚好等于保单限额（100%赔付）", "expected_keywords": ["限额", "全额赔付"], "expected_structure": ["结论", "赔付计算"], "sub_skill": "ins-claims"}
+{"id": "cl-r016", "category": "edge", "input": "客户同时申请多个险种的理赔（意外险+医疗险）", "expected_keywords": ["多险种", "分别计算", "不重复赔付"], "expected_structure": ["材料清单", "结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r017", "category": "error", "input": "客户故意制造事故骗保，证据确凿", "expected_keywords": ["欺诈", "拒赔", "法律责任"], "expected_structure": ["结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r018", "category": "error", "input": "客户出险时间在保单终止后3天", "expected_keywords": ["保单终止", "拒赔", "不在保障期"], "expected_structure": ["结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r019", "category": "error", "input": "客户提交的材料显示疾病为投保前已患（未如实告知）", "expected_keywords": ["未如实告知", "拒赔", "解除合同"], "expected_structure": ["结论"], "sub_skill": "ins-claims"}
+{"id": "cl-r020", "category": "error", "input": "系统故障导致理赔数据全部丢失", "expected_keywords": ["系统错误", "无法处理"], "expected_structure": ["结论"], "sub_skill": "ins-claims"}

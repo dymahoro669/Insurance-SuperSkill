@@ -1,0 +1,5 @@
+{"id": "kn-001", "category": "normal", "input": "什么是保险的现金价值", "expected_keywords": ["定义", "形成原因", "退保"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-002", "category": "normal", "input": "社保和医保有什么区别", "expected_keywords": ["概念对比", "覆盖范围", "缴费方式"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-003", "category": "normal", "input": "解释保险中的大数定律", "expected_keywords": ["原理", "保险应用", "案例"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-004", "category": "normal", "input": "保险法第16条关于如实告知的规定", "expected_keywords": ["条款内容", "法律后果", "实务应用"], "expected_structure": ["概念解释", "适用场景"], "sub_skill": "ins-knowledge"}
+{"id": "kn-005", "category": "normal", "input": "什么是再保险？有什么作用？", "expected_keywords": ["定义", "分保方式", "风险分散"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}

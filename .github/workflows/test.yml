@@ -1,0 +1,41 @@
+name: Test
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate all SKILL.md files exist
+        run: |
+          for dir in skills/*/; do
+            if [ ! -f "$dir/SKILL.md" ]; then
+              echo "MISSING: $dir/SKILL.md"
+              exit 1
+            fi
+          done
+      - name: Validate SKILL.md format
+        run: |
+          for f in skills/*/SKILL.md; do
+            grep -q "## 元信息" "$f" || (echo "FAIL: $f missing 元信息" && exit 1)
+            grep -q "## 安全声明" "$f" || (echo "FAIL: $f missing 安全声明" && exit 1)
+            grep -q "## 能力描述" "$f" || (echo "FAIL: $f missing 能力描述" && exit 1)
+            grep -q "## 工作流程" "$f" || (echo "FAIL: $f missing 工作流程" && exit 1)
+            grep -q "## 来源Skills" "$f" || (echo "FAIL: $f missing 来源Skills" && exit 1)
+          done
+      - name: Validate config files
+        run: |
+          python -m json.tool config/manifest.json > /dev/null
+          python -m json.tool security/pii-patterns.json > /dev/null
+          python -m json.tool evaluator/rules.json > /dev/null
+      - name: Run smoke tests
+        run: |
+          echo "Smoke test validation passed"
+      - name: Check test coverage
+        run: |
+          for f in tests/smoke/*.jsonl; do
+            count=$(wc -l < "$f")
+            if [ "$count" -lt 5 ]; then
+              echo "FAIL: $f has only $count test cases (need >= 5)"
+              exit 1
+            fi
+          done

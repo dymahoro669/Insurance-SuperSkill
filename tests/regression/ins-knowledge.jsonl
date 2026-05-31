@@ -1,0 +1,20 @@
+{"id": "kn-r001", "category": "normal", "input": "什么是保险的现金价值", "expected_keywords": ["现金价值", "定义", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r002", "category": "normal", "input": "社保和医保有什么区别", "expected_keywords": ["社保", "医保", "区别"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r003", "category": "normal", "input": "解释保险中的大数定律", "expected_keywords": ["大数定律", "解释", "原理"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r004", "category": "normal", "input": "保险法第16条关于如实告知的规定", "expected_keywords": ["保险法", "如实告知", "第16条"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r005", "category": "normal", "input": "什么是再保险", "expected_keywords": ["再保险", "定义", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r006", "category": "normal", "input": "保险中的犹豫期是什么意思", "expected_keywords": ["犹豫期", "退保", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r007", "category": "normal", "input": "什么是免赔额和赔付比例", "expected_keywords": ["免赔额", "赔付比例", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r008", "category": "normal", "input": "保险公司倒闭了保单怎么办", "expected_keywords": ["倒闭", "保单", "保险保障基金"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r009", "category": "normal", "input": "什么是保险代理人和保险经纪人", "expected_keywords": ["代理人", "经纪人", "区别"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r010", "category": "normal", "input": "人身保险和财产保险的区别", "expected_keywords": ["人身险", "财产险", "区别"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r011", "category": "normal", "input": "什么是保险的不可抗辩条款", "expected_keywords": ["不可抗辩", "两年", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r012", "category": "normal", "input": "保险合同中的宽限期是什么", "expected_keywords": ["宽限期", "60天", "解释"], "expected_structure": ["概念解释", "适用场景", "示例说明"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r013", "category": "edge", "input": "询问一个保险术语，但该术语不存在或已过时", "expected_keywords": ["不存在", "过时"], "expected_structure": ["概念解释", "适用场景"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r014", "category": "edge", "input": "询问的保险法规已被最新修订替代", "expected_keywords": ["已修订", "更新"], "expected_structure": ["概念解释", "适用场景"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r015", "category": "edge", "input": "不同地区对同一保险概念有不同解释", "expected_keywords": ["地区差异", "解释"], "expected_structure": ["概念解释", "适用场景"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r016", "category": "edge", "input": "用户将保险概念与其他金融产品混淆", "expected_keywords": ["混淆", "区别"], "expected_structure": ["概念解释", "适用场景"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r017", "category": "error", "input": "知识库中无此术语的任何记录", "expected_keywords": ["无记录"], "expected_structure": ["概念解释"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r018", "category": "error", "input": "知识库查询服务不可用", "expected_keywords": ["不可用"], "expected_structure": ["概念解释"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r019", "category": "error", "input": "用户输入的术语拼写错误严重，无法识别", "expected_keywords": ["无法识别"], "expected_structure": ["概念解释"], "sub_skill": "ins-knowledge"}
+{"id": "kn-r020", "category": "error", "input": "知识库返回的结果与权威来源矛盾", "expected_keywords": ["矛盾"], "expected_structure": ["概念解释"], "sub_skill": "ins-knowledge"}

@@ -1,0 +1,22 @@
+name: Build & Release
+on:
+  push:
+    tags: ['v*']
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package skills
+        run: |
+          zip -r insurance-super-skill-${GITHUB_REF_NAME#v}.zip \
+            skills/ config/ security/ evaluator/ bin/ install.ps1
+      - name: Generate SHA256
+        run: |
+          sha256sum insurance-super-skill-*.zip > insurance-super-skill-${GITHUB_REF_NAME#v}.zip.sha256
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            insurance-super-skill-*.zip
+            insurance-super-skill-*.zip.sha256

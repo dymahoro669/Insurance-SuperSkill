@@ -1,0 +1,20 @@
+{"id": "ac-r001", "category": "normal", "input": "计算30岁男性定期寿险的纯保费，死亡率为0.001，利率3%，保额100万", "expected_keywords": ["纯保费", "死亡率", "现值", "计算"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r002", "category": "normal", "input": "使用Bornhuetter-Ferguson法估计车险IBNR准备金，已赚保费5000万，期望赔付率65%", "expected_keywords": ["B-F法", "IBNR", "期望赔付率", "准备金"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r003", "category": "normal", "input": "评估一组寿险合同的IFRS17履约现金流，折现率4%，预计赔付率70%", "expected_keywords": ["IFRS17", "折现", "履约现金流", "合同服务边际"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r004", "category": "normal", "input": "使用蒙特卡洛模拟计算车险组合在99.5%置信水平下的VaR，历史损失数据1000条", "expected_keywords": ["蒙特卡洛", "VaR", "99.5%", "模拟"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r005", "category": "normal", "input": "计算某重疾险产品的定价充足性，目标赔付率75%，费用率20%，利润率5%", "expected_keywords": ["定价充足性", "赔付率", "费用率", "利润率"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r006", "category": "normal", "input": "使用链梯法估计健康险未决赔款准备金，已报案赔款2000万，发展因子1.25", "expected_keywords": ["链梯法", "发展因子", "未决赔款", "准备金"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r007", "category": "normal", "input": "评估巨灾债券的定价，触发概率2%，期望损失5000万，无风险利率3%", "expected_keywords": ["巨灾债券", "触发概率", "期望损失", "定价"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r008", "category": "normal", "input": "计算动态偿付能力充足率，实际资本10亿，最低资本要求8亿", "expected_keywords": ["偿付能力", "充足率", "实际资本", "最低资本"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r009", "category": "normal", "input": "评估再保险合约的最优自留额，年保费1亿，期望损失6000万，风险厌恶系数0.5", "expected_keywords": ["再保险", "自留额", "风险厌恶", "最优"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r010", "category": "normal", "input": "使用随机模拟计算年金产品的保证利率风险，退保率假设5%，利率情景1000个", "expected_keywords": ["随机模拟", "退保率", "利率风险", "情景分析"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r011", "category": "normal", "input": "评估长寿风险对年金负债的影响，生命表采用2010-2013经验生命表，长寿趋势每年1%", "expected_keywords": ["长寿风险", "生命表", "趋势", "负债"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r012", "category": "normal", "input": "计算信用保证保险的违约概率和预期损失，历史违约率3%，回收率40%", "expected_keywords": ["违约概率", "预期损失", "回收率", "信用风险"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r013", "category": "edge", "input": "输入的历史数据只有5条，要求使用链梯法", "expected_keywords": ["数据不足", "警告", "方法局限"], "expected_structure": ["计算方法", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r014", "category": "edge", "input": "计算结果出现负准备金", "expected_keywords": ["异常", "负值", "数据检查"], "expected_structure": ["计算方法", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r015", "category": "edge", "input": "折现率高于投资收益率", "expected_keywords": ["矛盾", "假设", "检查"], "expected_structure": ["假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r016", "category": "edge", "input": "期望赔付率超过100%", "expected_keywords": ["不合理", "警告", "假设检查"], "expected_structure": ["假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r017", "category": "error", "input": "输入的数据包含明显错误的日期（出险日期为未来日期）", "expected_keywords": ["数据错误", "无法计算"], "expected_structure": ["结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r018", "category": "error", "input": "计算过程中出现除以零错误", "expected_keywords": ["计算错误"], "expected_structure": ["结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r019", "category": "error", "input": "蒙特卡洛模拟运行内存溢出", "expected_keywords": ["系统错误"], "expected_structure": ["结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-r020", "category": "error", "input": "输入参数格式错误（字符串传入数字参数位置）", "expected_keywords": ["格式错误", "参数错误"], "expected_structure": ["结果摘要"], "sub_skill": "ins-actuarial"}

@@ -1,0 +1,122 @@
+{
+  "version": "1.0.0",
+  "description": "FDU-INS/Insurance-Skills 原始Skill到Insurance-SuperSkill子Skill的映射关系",
+  "source_repo": "https://github.com/FDU-INS/Insurance-Skills",
+  "target_repo": "https://github.com/dymahoro669/Insurance-SuperSkill",
+  "total_source_skills": 539,
+  "mappings": {
+    "ins-underwriting": {
+      "skill_count": 17,
+      "sources": [
+        "underwriting-analysis", "underwriting", "accident-insurance-underwriting-questionnaire-assistant",
+        "annuity-insurance-underwriting-questionnaire-assistant", "health-insurance-underwriting-questionnaire-assistant",
+        "critical-illness-underwriting-questionnaire-assistant", "life-insurance-underwriting-questionnaire-assistant",
+        "medical-insurance-underwriting-questionnaire-assistant", "underwriting-questionnaire-precheck-assistant",
+        "underwriting-questionnaire-review", "underwriting-questionnaire-secondary-review-assistant",
+        "underwriting-review-opinion-assistant", "underwriting-workflow-orchestrator-assistant",
+        "underwriting-conclusion-explanation", "flood-zone-lookup", "prior-authorization-review",
+        "extraction-policy-summary-ar"
+      ]
+    },
+    "ins-claims": {
+      "skill_count": 20,
+      "sources": [
+        "claims-material-check-accident-insurance-assistant", "claims-material-check-critical-illness-assistant",
+        "claims-material-check-life-insurance-assistant", "claims-material-check-medical-insurance-assistant",
+        "claims-clause-locator-assistant", "claims-fact-timeline-assistant", "claims-policy-check",
+        "coverage-scope-judgment", "critical-illness-coverage-scope-judgment-assistant",
+        "death-coverage-scope-judgment-assistant", "high-risk-claims-warning-assistant",
+        "anti-fraud-screening", "appeal-claim", "claims-communication", "claims-valuation",
+        "vehicle-appraiser", "claims-workflow", "claims-management", "guidewire-core-workflow-b",
+        "hcls-provider-claims-data-analysis"
+      ]
+    },
+    "ins-actuarial": {
+      "skill_count": 12,
+      "sources": [
+        "actuarial-modeling", "pricing-actuary", "reserving-actuary", "risk-management-actuary",
+        "analyzing-loss-reserves", "analyzing-premium-pricing", "analyzing-property-casualty-lines",
+        "analyzing-insurance-financials", "analyzing-insurance-investments", "takaful-ifrs17",
+        "ifrs17-specialist", "Corp Finance Tools - Specialty & Regulatory"
+      ]
+    },
+    "ins-compliance": {
+      "skill_count": 15,
+      "sources": [
+        "compliance", "compliance-review", "compliance-audit-insurance", "compliance-officer",
+        "hipaa-compliance-auditor", "coi-compliance-checker", "anti-fraud-screening",
+        "managing-insurance-fraud-detection", "regulatory-change-impact",
+        "managing-insurance-regulatory-filings", "fria-assessment", "cybersecurity-compliance",
+        "risk-management-playbook", "quality-compliance", "breach-credit-monitor"
+      ]
+    },
+    "ins-marketing": {
+      "skill_count": 10,
+      "sources": [
+        "annuity-life-insurance-sales", "insurance-needs-analysis", "financial-planner",
+        "auto-insurance-recommendation", "life-insurance-recommendation", "insurance-product-comparison",
+        "cross-selling-insurance", "insurance-proposal-writer", "quote", "generate-newsletter-insurance"
+      ]
+    },
+    "ins-policy": {
+      "skill_count": 10,
+      "sources": [
+        "policy-reader", "policy-guide", "policy-qa", "policy-comparison",
+        "insurance-policy-review", "insurance-coverage-summary", "policy-renewal-strategy",
+        "insurance-renewal-processor", "policy-service-process", "policyholder-service"
+      ]
+    },
+    "ins-product": {
+      "skill_count": 12,
+      "sources": [
+        "Insurance Analyst", "product-knowledge", "insurance-product-design", "insurance-product-review",
+        "financial-planner", "financial-planning-expert", "financial-insurance-guide",
+        "dental-insurance-guide", "pet-insurance-guide", "travel-insurance-guide",
+        "workers-comp-guide", "insurance-market-overview"
+      ]
+    },
+    "ins-service": {
+      "skill_count": 6,
+      "sources": [
+        "reply-templates", "uk-legal-canned-responses", "claims-communication",
+        "insurance-correspondence-summarization", "family-assistant", "policyholder-service"
+      ]
+    },
+    "ins-ops": {
+      "skill_count": 11,
+      "sources": [
+        "afrexai-insurance-automation", "insurance-workflow-automation", "weekly-kpi-report",
+        "insurance-weekly-report", "insurance-data-analytics", "staff-mapping-management",
+        "insurance-producer-training", "vendor-coordination", "insurance-carrier-appointment",
+        "field-validation", "insurance-testing"
+      ]
+    },
+    "ins-risk": {
+      "skill_count": 10,
+      "sources": [
+        "risk-management", "risk-management-playbook", "risk-analysis", "analyzing-catastrophe-risk",
+        "climate-risk-assessment", "climate-risk-agriculture", "cyber-risk-modeling",
+        "geo-infer-risk", "hormuz-strait", "risk-register"
+      ]
+    },
+    "ins-tech": {
+      "skill_count": 10,
+      "sources": [
+        "guidewire-core-workflow-a", "guidewire-core-workflow-b", "guidewire-hello-world",
+        "analyzing-auto-insurance-data", "healthsim", "pdf", "pdf-form-filler",
+        "acroform-fill", "scan-organizer", "standards-alignment"
+      ]
+    },
+    "ins-knowledge": {
+      "skill_count": 10,
+      "sources": [
+        "social-security-advisor", "social-security-expert", "social-insurance",
+        "indian-insurance-basics", "Workers Compensation Australia",
+        "Australian Insurance Legislation Analysis", "property-insurance-basics",
+        "reinsurance-basics", "insurance-domain", "reviewing-business-terminology"
+      ]
+    }
+  },
+  "extraction_method": "gh api repos/FDU-INS/Insurance-Skills/contents/Skills/{skill-name}/SKILL.md --jq .content | base64 -d",
+  "last_updated": "2026-05-31"
+}

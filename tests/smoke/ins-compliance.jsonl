@@ -1,0 +1,5 @@
+{"id": "co-001", "category": "normal", "input": "审查一份重疾险产品条款是否符合健康保险管理办法", "expected_keywords": ["合规结论", "依据条款", "等待期", "免赔额"], "expected_structure": ["合规结论", "依据条款", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-002", "category": "normal", "input": "检查营销材料中是否有保证理赔等违规表述", "expected_keywords": ["违禁词", "违规位置", "修改方案"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-003", "category": "normal", "input": "对包含客户健康数据的报告进行HIPAA合规审查", "expected_keywords": ["标识符", "脱敏", "最小必要"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-004", "category": "normal", "input": "反洗钱筛查：客户短期内大额投保后迅速退保", "expected_keywords": ["三级风险", "可疑交易", "报告建议"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-005", "category": "normal", "input": "监管发布互联网保险新规，分析对现有业务影响", "expected_keywords": ["变化点", "影响模块", "整改建议"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}

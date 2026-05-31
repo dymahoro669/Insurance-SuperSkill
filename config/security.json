@@ -1,0 +1,31 @@
+{
+  "version": "1.0.0",
+  "security_level": "high",
+  "pii_detection": {
+    "enabled": true,
+    "mode": "strict",
+    "max_replacement_per_session": 100,
+    "categories": [
+      "id_card", "bank_card", "phone_cn", "phone_intl", "name_cn",
+      "address_cn", "policy_num", "medical_info", "email", "ssn_cn",
+      "ssn_us", "passport_cn", "passport_us", "plate_cn", "property",
+      "dob", "salary", "company_name"
+    ]
+  },
+  "output_sanitization": {
+    "enabled": true,
+    "secondary_scan": true,
+    "block_on_leak": false,
+    "redact_on_leak": true
+  },
+  "compliance": {
+    "standards": ["HIPAA", "GDPR", "中国个人信息保护法", "保险法"],
+    "auto_check": true,
+    "blacklist_file": "security/compliance-blacklist.json"
+  },
+  "session": {
+    "storage": "memory_only",
+    "ttl_seconds": 3600,
+    "max_size_mb": 10
+  }
+}

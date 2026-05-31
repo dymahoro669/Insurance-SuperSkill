@@ -1,0 +1,5 @@
+{"id": "uw-001", "category": "normal", "input": "帮我分析这份意外险投保问卷，被保险人35岁程序员，有高血压病史", "expected_keywords": ["职业风险", "健康告知", "高血压", "加费", "延期"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-002", "category": "normal", "input": "50岁建筑工人投保意外险，高空作业", "expected_keywords": ["职业风险", "高空作业", "加费", "除外"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-003", "category": "normal", "input": "28岁女性投保医疗险，告知乳腺癌家族史", "expected_keywords": ["健康风险", "家族史", "标准体", "加费"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-004", "category": "normal", "input": "60岁退休老人投保年金险，年收入仅2万但申请年缴10万", "expected_keywords": ["财务核保", "收入证明", "降低保额"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-005", "category": "edge", "input": "投保信息完全缺失，仅说想买保险", "expected_keywords": ["补问建议", "必填项", "信息不足"], "expected_structure": ["补问建议"], "sub_skill": "ins-underwriting"}

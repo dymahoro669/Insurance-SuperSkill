@@ -1,0 +1,20 @@
+{"id": "tc-r001", "category": "normal", "input": "配置Guidewire核保工作流，增加自动核保规则", "expected_keywords": ["Guidewire", "核保", "规则"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r002", "category": "normal", "input": "设计车险理赔数据从核心系统到数据仓库的ETL流程", "expected_keywords": ["ETL", "数据仓库", "车险"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r003", "category": "normal", "input": "生成ACORD标准保单数据交换接口方案", "expected_keywords": ["ACORD", "接口", "标准"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r004", "category": "normal", "input": "配置PDF投保单自动填充，从CRM系统取数", "expected_keywords": ["PDF", "自动填充", "CRM"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r005", "category": "normal", "input": "设计保险核心系统的高可用架构", "expected_keywords": ["高可用", "架构", "核心系统"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r006", "category": "normal", "input": "实现保险理赔影像资料的OCR识别", "expected_keywords": ["OCR", "影像", "识别"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r007", "category": "normal", "input": "设计保险数据加密方案，满足等保三级要求", "expected_keywords": ["加密", "等保", "数据安全"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r008", "category": "normal", "input": "实现保险代理人的移动端出单系统", "expected_keywords": ["移动端", "出单", "代理"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r009", "category": "normal", "input": "设计保险反欺诈规则引擎", "expected_keywords": ["反欺诈", "规则引擎", "风控"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r010", "category": "normal", "input": "实现保险客户画像的数据建模", "expected_keywords": ["客户画像", "数据建模", "标签"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r011", "category": "normal", "input": "设计保险产品的在线配置平台", "expected_keywords": ["产品配置", "在线", "平台"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r012", "category": "normal", "input": "实现保险理赔的区块链存证方案", "expected_keywords": ["区块链", "存证", "理赔"], "expected_structure": ["技术方案", "集成步骤", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r013", "category": "edge", "input": "系统版本不兼容导致集成失败", "expected_keywords": ["不兼容", "失败"], "expected_structure": ["技术方案", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r014", "category": "edge", "input": "历史系统缺乏API文档，无法对接", "expected_keywords": ["缺乏", "文档"], "expected_structure": ["技术方案", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r015", "category": "edge", "input": "技术方案与预算严重不匹配", "expected_keywords": ["预算", "不匹配"], "expected_structure": ["技术方案", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r016", "category": "edge", "input": "新系统上线需要与20个遗留系统对接", "expected_keywords": ["遗留", "对接"], "expected_structure": ["技术方案", "注意事项"], "sub_skill": "ins-tech"}
+{"id": "tc-r017", "category": "error", "input": "技术方案设计阶段发现核心组件已停止维护", "expected_keywords": ["停止维护", "风险"], "expected_structure": ["技术方案"], "sub_skill": "ins-tech"}
+{"id": "tc-r018", "category": "error", "input": "系统集成测试阶段出现不可复现的偶发故障", "expected_keywords": ["偶发", "故障"], "expected_structure": ["技术方案"], "sub_skill": "ins-tech"}
+{"id": "tc-r019", "category": "error", "input": "生产环境部署后因配置错误导致服务中断", "expected_keywords": ["配置错误", "中断"], "expected_structure": ["技术方案"], "sub_skill": "ins-tech"}
+{"id": "tc-r020", "category": "error", "input": "第三方接口突然变更且无提前通知", "expected_keywords": ["变更", "通知"], "expected_structure": ["技术方案"], "sub_skill": "ins-tech"}

@@ -1,0 +1,5 @@
+{"id": "ac-001", "category": "normal", "input": "计算某车险产品定价：历史赔付率65%，费用率25%，目标利润率5%", "expected_keywords": ["风险保费", "费用加载", "毛保费"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-002", "category": "normal", "input": "使用链梯法估计未决赔款准备金", "expected_keywords": ["发展因子", "终极损失", "IBNR"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-003", "category": "normal", "input": "IFRS17计量：一组寿险合同的履约现金流现值", "expected_keywords": ["折现现金流", "合同服务边际", "损失组成部分"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-004", "category": "normal", "input": "使用蒙特卡洛模拟计算99.5% VaR", "expected_keywords": ["模拟路径", "损失分布", "VaR", "CTE"], "expected_structure": ["计算方法", "假设说明", "结果摘要"], "sub_skill": "ins-actuarial"}
+{"id": "ac-005", "category": "edge", "input": "输入数据明显异常（赔付率>100%且持续下降）", "expected_keywords": ["数据质量", "警告", "核查"], "expected_structure": ["计算方法", "结果摘要"], "sub_skill": "ins-actuarial"}

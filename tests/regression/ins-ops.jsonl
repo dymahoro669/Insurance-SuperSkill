@@ -1,0 +1,20 @@
+{"id": "op-r001", "category": "normal", "input": "生成上月团队KPI报告：保费达成率105%，新单率92%，继续率88%", "expected_keywords": ["KPI", "达成率", "分析"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r002", "category": "normal", "input": "分析某渠道产能下降20%的原因", "expected_keywords": ["渠道", "产能", "下降", "分析"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r003", "category": "normal", "input": "设计新人代理人90天培训计划", "expected_keywords": ["培训", "90天", "计划"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r004", "category": "normal", "input": "设计自动化续保提醒流程，覆盖10万客户", "expected_keywords": ["自动化", "续保", "提醒"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r005", "category": "normal", "input": "分析团队人员流失率，上月离职5人", "expected_keywords": ["流失率", "离职", "分析"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r006", "category": "normal", "input": "优化理赔案件分配算法，减少等待时间", "expected_keywords": ["分配", "算法", "优化"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r007", "category": "normal", "input": "生成季度财务报告：保费收入2亿，赔付1.2亿", "expected_keywords": ["财务", "保费", "赔付"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r008", "category": "normal", "input": "设计客户满意度调查问卷和跟进流程", "expected_keywords": ["满意度", "问卷", "跟进"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r009", "category": "normal", "input": "分析代理佣金结构是否合理", "expected_keywords": ["佣金", "结构", "分析"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r010", "category": "normal", "input": "设计异常理赔案件的自动预警机制", "expected_keywords": ["异常", "预警", "机制"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r011", "category": "normal", "input": "优化保单批改审批流程，缩短审批时间", "expected_keywords": ["批改", "审批", "优化"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r012", "category": "normal", "input": "设计保险投诉处理的标准化流程", "expected_keywords": ["投诉", "标准化", "流程"], "expected_structure": ["KPI分析", "改进建议", "实施步骤"], "sub_skill": "ins-ops"}
+{"id": "op-r013", "category": "edge", "input": "数据源不完整，无法生成完整报告", "expected_keywords": ["数据缺失", "不完整"], "expected_structure": ["KPI分析", "改进建议"], "sub_skill": "ins-ops"}
+{"id": "op-r014", "category": "edge", "input": "历史数据存在矛盾，同一指标在不同系统中数值不同", "expected_keywords": ["矛盾", "不一致"], "expected_structure": ["KPI分析", "改进建议"], "sub_skill": "ins-ops"}
+{"id": "op-r015", "category": "edge", "input": "优化方案需要跨部门协调，但部门间存在利益冲突", "expected_keywords": ["协调", "冲突"], "expected_structure": ["KPI分析", "改进建议"], "sub_skill": "ins-ops"}
+{"id": "op-r016", "category": "edge", "input": "预算不足，无法实施推荐的改进方案", "expected_keywords": ["预算", "限制"], "expected_structure": ["KPI分析", "改进建议"], "sub_skill": "ins-ops"}
+{"id": "op-r017", "category": "error", "input": "运营分析系统数据库连接失败", "expected_keywords": ["系统错误"], "expected_structure": ["KPI分析"], "sub_skill": "ins-ops"}
+{"id": "op-r018", "category": "error", "input": "报表生成任务因内存不足而失败", "expected_keywords": ["内存不足", "失败"], "expected_structure": ["KPI分析"], "sub_skill": "ins-ops"}
+{"id": "op-r019", "category": "error", "input": "KPI指标计算公式被误修改，导致数据全部错误", "expected_keywords": ["计算错误"], "expected_structure": ["KPI分析"], "sub_skill": "ins-ops"}
+{"id": "op-r020", "category": "error", "input": "用户没有权限访问运营数据", "expected_keywords": ["权限", "拒绝"], "expected_structure": ["KPI分析"], "sub_skill": "ins-ops"}

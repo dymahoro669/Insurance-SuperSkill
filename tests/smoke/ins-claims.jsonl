@@ -1,0 +1,5 @@
+{"id": "cl-001", "category": "normal", "input": "意外险理赔：客户摔伤骨折，提交诊断证明、发票、事故说明", "expected_keywords": ["材料清单", "责任判定", "赔付金额"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-002", "category": "normal", "input": "重疾险理赔：客户确诊甲状腺癌，提交病理报告", "expected_keywords": ["病理报告", "重疾定义", "赔付结论"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-003", "category": "normal", "input": "医疗险理赔：客户住院手术，总费用5万，医保报销3万", "expected_keywords": ["自费部分", "免赔额", "赔付比例"], "expected_structure": ["材料清单", "结论", "时间预估"], "sub_skill": "ins-claims"}
+{"id": "cl-004", "category": "edge", "input": "理赔材料缺失：客户仅口头描述事故，无书面材料", "expected_keywords": ["缺失材料", "无法受理", "补充材料"], "expected_structure": ["材料清单", "结论"], "sub_skill": "ins-claims"}
+{"id": "cl-005", "category": "error", "input": "出险时间在保单生效前", "expected_keywords": ["不在保障期间", "拒赔", "生效日期"], "expected_structure": ["结论", "时间预估"], "sub_skill": "ins-claims"}

@@ -1,0 +1,34 @@
+{
+  "name": "insurance-super-skill",
+  "version": "1.0.0",
+  "description": "保险行业超级Skill平台 — 一键安装，覆盖保险全业务链",
+  "platform_repo": "https://github.com/dymahoro669/Insurance-SuperSkill",
+  "components": {
+    "insurance-super-skill": { "version": "1.0.0", "type": "main" },
+    "ins-underwriting":      { "version": "1.0.0", "type": "domain" },
+    "ins-claims":            { "version": "1.0.0", "type": "domain" },
+    "ins-actuarial":         { "version": "1.0.0", "type": "domain" },
+    "ins-compliance":        { "version": "1.0.0", "type": "domain" },
+    "ins-marketing":         { "version": "1.0.0", "type": "domain" },
+    "ins-policy":            { "version": "1.0.0", "type": "domain" },
+    "ins-product":           { "version": "1.0.0", "type": "domain" },
+    "ins-service":           { "version": "1.0.0", "type": "domain" },
+    "ins-ops":               { "version": "1.0.0", "type": "domain" },
+    "ins-risk":              { "version": "1.0.0", "type": "domain" },
+    "ins-tech":              { "version": "1.0.0", "type": "domain" },
+    "ins-knowledge":         { "version": "1.0.0", "type": "domain" },
+    "security-guardian":     { "version": "1.0.0", "type": "governance" },
+    "local-evaluator":       { "version": "1.0.0", "type": "governance" }
+  },
+  "security": {
+    "data_collection": "none",
+    "pii_handling": "strip_on_input",
+    "output_sanitization": true,
+    "audit_log": "local_only"
+  },
+  "router": {
+    "config_file": "config/router.yaml",
+    "fallback_skill": "ins-knowledge",
+    "confidence_threshold": 0.7
+  }
+}

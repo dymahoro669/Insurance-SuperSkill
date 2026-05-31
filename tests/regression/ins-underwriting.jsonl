@@ -1,0 +1,20 @@
+{"id": "uw-r001", "category": "normal", "input": "30岁男性程序员投保重疾险，BMI 24，无既往病史，年缴预算5000元", "expected_keywords": ["标准体", "职业风险低", "核保建议", "风险摘要"], "expected_structure": ["风险摘要", "核保建议", "结论解释"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r002", "category": "normal", "input": "45岁女性教师投保医疗险，有甲状腺结节（TI-RADS 3级）", "expected_keywords": ["甲状腺结节", "TI-RADS", "除外", "加费"], "expected_structure": ["风险摘要", "核保建议", "结论解释"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r003", "category": "normal", "input": "50岁企业高管投保年金险，年收入200万，计划趸缴100万", "expected_keywords": ["财务核保", "收入证明", "反洗钱", "标准体"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r004", "category": "normal", "input": "28岁外卖骑手投保意外险，每日骑行约80公里", "expected_keywords": ["职业风险", "高风险职业", "加费", "除外"], "expected_structure": ["风险摘要", "核保建议", "结论解释"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r005", "category": "normal", "input": "35岁女性投保寿险，告知有乳腺癌家族史（母亲50岁确诊）", "expected_keywords": ["家族史", "乳腺癌", "加费", "除外"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r006", "category": "normal", "input": "60岁退休老人投保防癌险，有高血压（160/95，服药控制）", "expected_keywords": ["高血压", "年龄限制", "加费", "延期"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r007", "category": "normal", "input": "25岁健身教练投保定期寿险，经常参加极限运动", "expected_keywords": ["极限运动", "高风险", "加费", "除外"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r008", "category": "normal", "input": "40岁糖尿病患者投保重疾险，糖化血红蛋白7.5%", "expected_keywords": ["糖尿病", "糖化血红蛋白", "加费", "除外"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r009", "category": "normal", "input": "32岁孕妇投保母婴险，孕28周，无妊娠并发症", "expected_keywords": ["妊娠期", "等待期", "标准体", "除外"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r010", "category": "normal", "input": "55岁私企老板投保高额终身寿险，保额500万", "expected_keywords": ["财务核保", "高额保单", "体检", "标准体"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r011", "category": "normal", "input": "22岁大学生投保学平险，无任何病史", "expected_keywords": ["标准体", "低风险", "学生"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r012", "category": "normal", "input": "48岁男性投保重疾险，有肺结节（5mm，磨玻璃）", "expected_keywords": ["肺结节", "磨玻璃", "延期", "随访"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r013", "category": "edge", "input": "投保信息全部为空，只提交了空白的健康问卷", "expected_keywords": ["信息不足", "补问", "无法核保"], "expected_structure": ["补问建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r014", "category": "edge", "input": "投保人年龄刚好在投保上限（65岁零1天）", "expected_keywords": ["年龄限制", "拒保", "超龄"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r015", "category": "edge", "input": "被保险人同时告知5种疾病（高血压+糖尿病+心脏病+肾病+肝病）", "expected_keywords": ["多系统疾病", "拒保", "高风险"], "expected_structure": ["风险摘要", "核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r016", "category": "edge", "input": "投保人年收入1万但申请年缴保费10万", "expected_keywords": ["财务核保", "收入不足", "降低保额"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r017", "category": "error", "input": "输入中包含'保证承保'等违规表述", "expected_keywords": ["无法处理"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r018", "category": "error", "input": "被保险人是已确诊的晚期癌症患者，隐瞒病史投保", "expected_keywords": ["重大隐瞒", "拒保", "告知义务"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r019", "category": "error", "input": "系统错误：无法解析输入数据格式", "expected_keywords": ["错误"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}
+{"id": "uw-r020", "category": "error", "input": "投保职业类别为'恐怖分子'或'非法武装人员'", "expected_keywords": ["拒保", "职业限制"], "expected_structure": ["核保建议"], "sub_skill": "ins-underwriting"}

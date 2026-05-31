@@ -1,0 +1,20 @@
+{"id": "co-r001", "category": "normal", "input": "审查一份重疾险产品条款是否符合健康保险管理办法", "expected_keywords": ["合规", "健康保险管理办法", "等待期", "免赔额"], "expected_structure": ["合规结论", "依据条款", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r002", "category": "normal", "input": "检查营销材料中是否有保证理赔等违规表述", "expected_keywords": ["违禁词", "违规", "修改方案"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r003", "category": "normal", "input": "对包含客户健康数据的报告进行HIPAA合规审查", "expected_keywords": ["HIPAA", "标识符", "脱敏"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r004", "category": "normal", "input": "反洗钱筛查：客户短期内大额投保后迅速退保", "expected_keywords": ["反洗钱", "可疑交易", "三级风险"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r005", "category": "normal", "input": "监管发布互联网保险新规，分析对现有业务影响", "expected_keywords": ["监管", "影响分析", "整改建议"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r006", "category": "normal", "input": "审查保险代理人销售话术是否符合保险法要求", "expected_keywords": ["保险法", "销售话术", "误导"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r007", "category": "normal", "input": "检查数据留存策略是否符合个人信息保护法", "expected_keywords": ["个保法", "数据留存", "最小必要"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r008", "category": "normal", "input": "审查保险理赔流程是否存在利益冲突", "expected_keywords": ["利益冲突", "COI", "回避"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r009", "category": "normal", "input": "评估AI核保模型是否存在算法歧视风险", "expected_keywords": ["算法歧视", "公平性", "EU AI Act"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r010", "category": "normal", "input": "审查保险资金投资比例是否符合偿付能力监管要求", "expected_keywords": ["偿付能力", "投资比例", "监管"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r011", "category": "normal", "input": "检查保险合同中的免责条款是否充分提示", "expected_keywords": ["免责条款", "提示义务", "显著标识"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r012", "category": "normal", "input": "审查保险理赔时效是否符合监管要求", "expected_keywords": ["理赔时效", "监管", "30日"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r013", "category": "edge", "input": "监管规定与行业标准存在冲突", "expected_keywords": ["冲突", "就高不就低", "合规"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r014", "category": "edge", "input": "新产品同时涉及多个监管机构的管辖范围", "expected_keywords": ["管辖", "协调", "合规"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r015", "category": "edge", "input": "合规要求与业务效率存在明显矛盾", "expected_keywords": ["平衡", "效率", "合规"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r016", "category": "edge", "input": "历史遗留产品的合规性问题", "expected_keywords": ["历史", "过渡期", "整改"], "expected_structure": ["合规结论", "整改建议"], "sub_skill": "ins-compliance"}
+{"id": "co-r017", "category": "error", "input": "系统无法访问最新的法规数据库", "expected_keywords": ["系统错误"], "expected_structure": ["合规结论"], "sub_skill": "ins-compliance"}
+{"id": "co-r018", "category": "error", "input": "输入的法规条文编号不存在", "expected_keywords": ["错误", "不存在"], "expected_structure": ["合规结论"], "sub_skill": "ins-compliance"}
+{"id": "co-r019", "category": "error", "input": "合规检查引擎超时", "expected_keywords": ["超时", "系统错误"], "expected_structure": ["合规结论"], "sub_skill": "ins-compliance"}
+{"id": "co-r020", "category": "error", "input": "输入数据包含SQL注入攻击", "expected_keywords": ["安全", "攻击"], "expected_structure": ["合规结论"], "sub_skill": "ins-compliance"}

@@ -1,0 +1,10 @@
+{"id": "cross-001", "category": "normal", "input": "这个客户的重疾险理赔被拒了，帮我分析原因并准备申诉", "expected_skills": ["ins-claims", "ins-underwriting", "ins-compliance"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-002", "category": "normal", "input": "我想给孩子买一份教育金保险，有什么推荐？", "expected_skills": ["ins-product", "ins-marketing"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-003", "category": "normal", "input": "保单要续保了，帮我看看要不要继续", "expected_skills": ["ins-policy", "ins-underwriting"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-004", "category": "normal", "input": "公司要做一个合规审计，重点看风控", "expected_skills": ["ins-compliance", "ins-risk"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-005", "category": "normal", "input": "设计一款新的重疾险产品并定价", "expected_skills": ["ins-product", "ins-actuarial", "ins-compliance"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-006", "category": "normal", "input": "客户投诉理赔慢，同时质疑核保结论", "expected_skills": ["ins-claims", "ins-underwriting", "ins-service"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-007", "category": "normal", "input": "做一个车险产品的风险评估和定价方案", "expected_skills": ["ins-risk", "ins-actuarial", "ins-product"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-008", "category": "normal", "input": "新员工培训：保险基础知识和系统操作", "expected_skills": ["ins-knowledge", "ins-tech", "ins-ops"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-009", "category": "normal", "input": "营销团队要做一个续保客户的交叉销售方案", "expected_skills": ["ins-marketing", "ins-policy", "ins-ops"], "sub_skill": "insurance-super-skill"}
+{"id": "cross-010", "category": "normal", "input": "监管要求上报数据，需要检查数据质量和合规性", "expected_skills": ["ins-compliance", "ins-tech", "ins-ops"], "sub_skill": "insurance-super-skill"}

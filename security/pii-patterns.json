@@ -1,0 +1,176 @@
+{
+  "version": "1.0.0",
+  "description": "18类PII检测正则模式库",
+  "patterns": [
+    {
+      "id": "id_card",
+      "name": "身份证号",
+      "category": "identity",
+      "priority": 1,
+      "regex": "\\b[1-9]\\d{5}(19|20)\\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])\\d{3}[\\dXx]\\b",
+      "replacement": "[ID_REDACT_{n}]",
+      "description": "中国大陆二代身份证号码"
+    },
+    {
+      "id": "bank_card",
+      "name": "银行卡号",
+      "category": "financial",
+      "priority": 2,
+      "regex": "\\b[3-6]\\d{3}[- ]?\\d{4}[- ]?\\d{4}[- ]?\\d{4,7}\\b",
+      "replacement": "[CARD_REDACT_{n}]",
+      "description": "银行卡/信用卡号码",
+      "luhn_check": true
+    },
+    {
+      "id": "phone_cn",
+      "name": "中国手机号",
+      "category": "contact",
+      "priority": 3,
+      "regex": "\\b1[3-9]\\d{9}\\b",
+      "replacement": "[PHONE_REDACT_{n}]",
+      "description": "中国大陆手机号码"
+    },
+    {
+      "id": "phone_intl",
+      "name": "国际电话",
+      "category": "contact",
+      "priority": 3,
+      "regex": "\\b\\+?\\d{1,3}[-.\\s]?\\(?\\d{3}\\)?[-.\\s]?\\d{3,4}[-.\\s]?\\d{4}\\b",
+      "replacement": "[PHONE_REDACT_{n}]",
+      "description": "国际电话号码格式"
+    },
+    {
+      "id": "name_cn",
+      "name": "中文姓名",
+      "category": "identity",
+      "priority": 4,
+      "regex": "(?<=[我叫是姓名为]?)[\\u4e00-\\u9fa5]{2,4}(?=[，。\\s]|$)",
+      "replacement": "[NAME_REDACT_{n}]",
+      "description": "2-4个汉字的中文姓名",
+      "context_check": true
+    },
+    {
+      "id": "address_cn",
+      "name": "中文地址",
+      "category": "location",
+      "priority": 5,
+      "regex": "((省|市|区|县|镇|村|路|街|号|栋|幢|室).{2,30})",
+      "replacement": "[ADDR_REDACT_{n}]",
+      "description": "包含省市路街等关键词的地址"
+    },
+    {
+      "id": "policy_num",
+      "name": "保单号",
+      "category": "insurance",
+      "priority": 6,
+      "regex": "\\b(POL|INS|P)[-]?\\d{6,15}\\b",
+      "replacement": "[POL_REDACT_{n}]",
+      "description": "保险保单号码"
+    },
+    {
+      "id": "medical_info",
+      "name": "病历信息",
+      "category": "health",
+      "priority": 7,
+      "regex": "(诊断|检查|化验|CT|MRI|B超|心电图|血压|血糖|尿酸|胆固醇|肿瘤标志物).{2,50}",
+      "replacement": "[MED_REDACT_{n}]",
+      "description": "医疗诊断和检查结果"
+    },
+    {
+      "id": "email",
+      "name": "电子邮箱",
+      "category": "contact",
+      "priority": 8,
+      "regex": "\\b[\\w.+-]+@[\\w-]+\\.[\\w.-]+\\b",
+      "replacement": "[EMAIL_REDACT_{n}]",
+      "description": "电子邮件地址"
+    },
+    {
+      "id": "ssn_cn",
+      "name": "中国社保号",
+      "category": "identity",
+      "priority": 9,
+      "regex": "\\b\\d{18}\\b",
+      "replacement": "[SSN_REDACT_{n}]",
+      "description": "中国社保/医保卡号"
+    },
+    {
+      "id": "ssn_us",
+      "name": "美国社保号",
+      "category": "identity",
+      "priority": 9,
+      "regex": "\\b\\d{3}[-]?\\d{2}[-]?\\d{4}\\b",
+      "replacement": "[SSN_REDACT_{n}]",
+      "description": "美国社会安全号码"
+    },
+    {
+      "id": "passport_cn",
+      "name": "中国护照号",
+      "category": "identity",
+      "priority": 10,
+      "regex": "\\b[A-Z]\\d{8}\\b",
+      "replacement": "[PASSPORT_REDACT_{n}]",
+      "description": "中国护照号码"
+    },
+    {
+      "id": "passport_us",
+      "name": "美国护照号",
+      "category": "identity",
+      "priority": 10,
+      "regex": "\\b\\d{9}\\b",
+      "replacement": "[PASSPORT_REDACT_{n}]",
+      "description": "美国护照号码"
+    },
+    {
+      "id": "plate_cn",
+      "name": "中国车牌号",
+      "category": "vehicle",
+      "priority": 11,
+      "regex": "[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤川青藏琼宁][A-Z][A-Z0-9]{5}",
+      "replacement": "[PLATE_REDACT_{n}]",
+      "description": "中国机动车牌照"
+    },
+    {
+      "id": "property",
+      "name": "房产信息",
+      "category": "property",
+      "priority": 12,
+      "regex": "(小区|花园|大厦|公寓|苑|城|湾|府).{2,20}(栋|幢|号|座).{1,10}(室|房)",
+      "replacement": "[PROP_REDACT_{n}]",
+      "description": "房产地址信息"
+    },
+    {
+      "id": "dob",
+      "name": "出生日期",
+      "category": "identity",
+      "priority": 13,
+      "regex": "\\b(19|20)\\d{2}年(0?[1-9]|1[0-2])月(0?[1-9]|[12]\\d|3[01])日\\b",
+      "replacement": "[DOB_REDACT_{n}]",
+      "description": "中文格式出生日期"
+    },
+    {
+      "id": "salary",
+      "name": "收入信息",
+      "category": "financial",
+      "priority": 14,
+      "regex": "(月薪|年薪|收入|工资|薪资).{0,5}(\\d{3,}[,\\s]?\\d*|[一二三四五六七八九十百千万亿]+)",
+      "replacement": "[SALARY_REDACT_{n}]",
+      "description": "收入薪资信息"
+    },
+    {
+      "id": "company_name",
+      "name": "公司名称",
+      "category": "business",
+      "priority": 15,
+      "regex": "(?<=(?:公司|单位|企业|雇主)[:：是为]?)[\\u4e00-\\u9fa5a-zA-Z]{2,30}(?=[，。\\s]|$)",
+      "replacement": "[COMPANY_REDACT_{n}]",
+      "description": "雇主或公司名称"
+    }
+  ],
+  "processing_rules": {
+    "match_order": "priority_asc",
+    "nested_handling": "longest_first",
+    "session_storage": "memory_only",
+    "max_replacement_per_type": 100
+  }
+}

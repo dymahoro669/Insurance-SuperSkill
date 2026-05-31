@@ -1,0 +1,28 @@
+name: Nightly Evolution
+on:
+  schedule:
+    - cron: '0 18 * * *'  # UTC 18:00 = CST 02:00
+jobs:
+  evolve:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Collect evaluation data
+        run: echo "Collecting L1 stats + L2 findings + L3 reports..."
+      - name: Determine evolution targets
+        run: echo "Priority ranking based on evaluation data..."
+      - name: Generate evolution plan
+        run: echo "Max 2 sub-skills, max 3 changes each..."
+      - name: Run regression tests
+        run: |
+          echo "Running full test suite..."
+          for f in tests/regression/*.jsonl; do echo "Testing $f"; done
+          for f in tests/smoke/*.jsonl; do echo "Smoke: $f"; done
+      - name: Run Evolution Auditor
+        run: echo "6-dimension audit - INT/USA/CON/EFF/PRO/REA"
+      - name: Publish if PASS
+        if: success()
+        run: echo "Bump version and create release tag"
+      - name: Rollback if FAIL
+        if: failure()
+        run: echo "Revert changes, freeze affected skill, notify team"

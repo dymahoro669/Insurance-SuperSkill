@@ -1,0 +1,20 @@
+{"id": "mk-r001", "category": "normal", "input": "30岁已婚，年收入20万，有房贷100万，无保险", "expected_keywords": ["定期寿险", "重疾险", "保障缺口", "推荐方案"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r002", "category": "normal", "input": "50岁退休，已有社保，想补充医疗和养老", "expected_keywords": ["百万医疗", "年金险", "补充", "推荐"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r003", "category": "normal", "input": "为5岁孩子规划教育金保险", "expected_keywords": ["教育金", "年金险", "储蓄", "推荐"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r004", "category": "normal", "input": "35岁自由职业者，无社保，需要全面保障", "expected_keywords": ["自由职业", "无社保", "医疗", "重疾"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r005", "category": "normal", "input": "为家庭配置保险，夫妻+1个孩子，年收入50万", "expected_keywords": ["家庭保障", "夫妻", "孩子", "方案"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r006", "category": "normal", "input": "60岁老人投保防癌险，预算有限", "expected_keywords": ["防癌险", "老人", "预算", "推荐"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r007", "category": "normal", "input": "28岁新婚夫妇，计划2年内要孩子，求保险规划", "expected_keywords": ["新婚", "备孕", "母婴", "规划"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r008", "category": "normal", "input": "40岁企业主，已有团险，需要个人补充", "expected_keywords": ["企业主", "团险", "补充", "高端医疗"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r009", "category": "normal", "input": "22岁大学生，预算极低，求基础保障", "expected_keywords": ["学生", "预算低", "意外险", "医疗"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r010", "category": "normal", "input": "55岁高管即将退休，需要养老和传承规划", "expected_keywords": ["高管", "退休", "养老", "传承"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r011", "category": "normal", "input": "为宠物狗投保宠物医疗险", "expected_keywords": ["宠物险", "医疗", "推荐"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r012", "category": "normal", "input": "经常出国出差，需要全球旅行险", "expected_keywords": ["旅行险", "全球", "出差", "推荐"], "expected_structure": ["推荐方案", "对比分析", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r013", "category": "edge", "input": "客户预算仅500元/年但要求全面保障", "expected_keywords": ["预算限制", "优先级", "基础"], "expected_structure": ["推荐方案", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r014", "category": "edge", "input": "客户有严重既往病史，几乎所有健康险都拒保", "expected_keywords": ["拒保", "既往症", "替代方案"], "expected_structure": ["推荐方案", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r015", "category": "edge", "input": "客户要求只买理财型保险不要保障型", "expected_keywords": ["理财", "保障", "建议"], "expected_structure": ["推荐方案", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r016", "category": "edge", "input": "客户要求推荐具体保险公司产品", "expected_keywords": ["客观", "对比", "不指定"], "expected_structure": ["推荐方案", "注意事项"], "sub_skill": "ins-marketing"}
+{"id": "mk-r017", "category": "error", "input": "客户要求保证收益10%以上的保险产品", "expected_keywords": ["违规", "不可能", "风险提示"], "expected_structure": ["推荐方案"], "sub_skill": "ins-marketing"}
+{"id": "mk-r018", "category": "error", "input": "系统无法获取客户风险评估数据", "expected_keywords": ["系统错误"], "expected_structure": ["推荐方案"], "sub_skill": "ins-marketing"}
+{"id": "mk-r019", "category": "error", "input": "客户输入包含恶意脚本", "expected_keywords": ["安全"], "expected_structure": ["推荐方案"], "sub_skill": "ins-marketing"}
+{"id": "mk-r020", "category": "error", "input": "推荐引擎超时无响应", "expected_keywords": ["超时", "错误"], "expected_structure": ["推荐方案"], "sub_skill": "ins-marketing"}

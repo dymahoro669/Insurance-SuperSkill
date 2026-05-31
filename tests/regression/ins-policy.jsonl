@@ -1,0 +1,20 @@
+{"id": "po-r001", "category": "normal", "input": "解读重疾险保单中的轻症疾病定义和赔付条件", "expected_keywords": ["轻症", "赔付比例", "定义"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r002", "category": "normal", "input": "客户想办理保单贷款，保单现金价值5万", "expected_keywords": ["保单贷款", "现金价值", "利率"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r003", "category": "normal", "input": "保单即将到期，客户犹豫是否续保", "expected_keywords": ["续保", "现金价值", "建议"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r004", "category": "normal", "input": "客户想变更受益人，原受益人为前妻", "expected_keywords": ["受益人", "变更", "手续"], "expected_structure": ["保单摘要", "操作建议", "注意事项"], "sub_skill": "ins-policy"}
+{"id": "po-r005", "category": "normal", "input": "保单已失效2年，客户想恢复效力", "expected_keywords": ["复效", "补费", "健康告知"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r006", "category": "normal", "input": "客户申请退保，了解退保损失", "expected_keywords": ["退保", "现金价值", "损失"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r007", "category": "normal", "input": "保单遗失，申请补发", "expected_keywords": ["遗失", "补发", "手续"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r008", "category": "normal", "input": "客户搬家，变更保单通讯地址", "expected_keywords": ["地址变更", "通讯", "手续"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r009", "category": "normal", "input": "客户申请减额交清", "expected_keywords": ["减额交清", "保费", "保额"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r010", "category": "normal", "input": "客户申请保单迁移（从A公司迁到B公司）", "expected_keywords": ["迁移", "退保", "投保"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r011", "category": "normal", "input": "客户申请犹豫期退保", "expected_keywords": ["犹豫期", "全额退保", "15日"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r012", "category": "normal", "input": "客户申请保单质押贷款", "expected_keywords": ["质押", "贷款", "利率"], "expected_structure": ["保单摘要", "条款解读", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r013", "category": "edge", "input": "保单处于贷款状态，客户申请退保", "expected_keywords": ["贷款", "退保", "清偿"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r014", "category": "edge", "input": "保单被法院冻结，客户申请变更受益人", "expected_keywords": ["冻结", "限制", "无法变更"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r015", "category": "edge", "input": "客户要求将保单转让给第三方", "expected_keywords": ["转让", "限制", "不可转让"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r016", "category": "edge", "input": "保单现金价值刚好等于已交保费（盈亏平衡点）", "expected_keywords": ["现金价值", "盈亏平衡"], "expected_structure": ["保单摘要", "操作建议"], "sub_skill": "ins-policy"}
+{"id": "po-r017", "category": "error", "input": "系统无法查询到该保单信息", "expected_keywords": ["查询失败", "不存在"], "expected_structure": ["保单摘要"], "sub_skill": "ins-policy"}
+{"id": "po-r018", "category": "error", "input": "客户输入的保单号格式错误", "expected_keywords": ["格式错误", "保单号"], "expected_structure": ["保单摘要"], "sub_skill": "ins-policy"}
+{"id": "po-r019", "category": "error", "input": "保单系统接口超时", "expected_keywords": ["超时", "系统错误"], "expected_structure": ["保单摘要"], "sub_skill": "ins-policy"}
+{"id": "po-r020", "category": "error", "input": "客户身份验证失败，无法操作保单", "expected_keywords": ["认证失败"], "expected_structure": ["保单摘要"], "sub_skill": "ins-policy"}

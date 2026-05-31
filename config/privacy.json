@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "privacy_policy": {
+    "data_collection": "none",
+    "data_retention": "session_only",
+    "data_storage": "local_only",
+    "pii_handling": "strip_on_input",
+    "audit_logging": "local_only"
+  },
+  "user_rights": {
+    "access": true,
+    "correction": false,
+    "deletion": true,
+    "portability": false
+  },
+  "regulatory_frameworks": [
+    {
+      "name": "HIPAA",
+      "applicable": true,
+      "measures": ["encryption_at_rest", "access_control", "audit_trail"]
+    },
+    {
+      "name": "GDPR",
+      "applicable": true,
+      "measures": ["data_minimization", "purpose_limitation", "storage_limitation"]
+    },
+    {
+      "name": "中国个人信息保护法",
+      "applicable": true,
+      "measures": ["informed_consent", "data_security", "breach_notification"]
+    }
+  ],
+  "contact": {
+    "dpo_email": "privacy@example.com",
+    "response_time_days": 30
+  }
+}

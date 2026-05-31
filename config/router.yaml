@@ -1,0 +1,71 @@
+version: "1.0"
+routes:
+  - id: underwriting
+    skill: ins-underwriting
+    keywords: [toubao, hebao, gaozhi, jiankangwenjuan, fengxianpingji, jiafei, chuwai, jubao, chengbao, tijian, jiwangzheng, underwriting]
+    weight: 1.0
+  - id: claims
+    skill: ins-claims
+    keywords: [lipei, baoan, suopei, jupei, shensu, cailiao, dingsun, peifu, chuxian, mianpei, geifu, claim]
+    weight: 1.0
+  - id: actuarial
+    skill: ins-actuarial
+    keywords: [dingjia, zhunbeijin, IBNR, jingsuan, feilv, sunshilv, zibenmoxing, IFRS17, zonghechengbenlv, actuarial]
+    weight: 1.0
+  - id: compliance
+    skill: ins-compliance
+    keywords: [hegui, shenji, HIPAA, fanxiqian, AML, jianguan, faguibianhua, COI, fanqizha, compliance]
+    weight: 1.0
+  - id: marketing
+    skill: ins-marketing
+    keywords: [tuijian, xiaoshou, huoke, zhuanhua, baojia, yingxiaofangan, jiaochaxiaoshou, xubaolv, marketing]
+    weight: 1.0
+  - id: policy
+    skill: ins-policy
+    keywords: [baodan, xubao, baoquan, paipi, tiaokuenjiexin, fugaifanwei, baodandai, youyuqi, policy]
+    weight: 1.0
+  - id: product
+    skill: ins-product
+    keywords: [chanpinjieshao, xianzhong, baozhang, bijiao, naikuanhao, guihua, chanpinduibi, product]
+    weight: 1.0
+  - id: service
+    skill: ins-service
+    keywords: [huashu, FAQ, tousu, kehugoutong, xinhan, manyidu, huifang, service]
+    weight: 1.0
+  - id: ops
+    skill: ins-ops
+    keywords: [KPI, baogao, zidonghua, gongzuoliu, tuandui, peixun, jixiao, qudao, yongjin, ops]
+    weight: 1.0
+  - id: risk
+    skill: ins-risk
+    keywords: [fengxianpinggu, juzai, qihoufengxian, wangluofengxian, fengxiandengji, leijibaolou, zaibaoxian, risk]
+    weight: 1.0
+  - id: tech
+    skill: ins-tech
+    keywords: [API, Guidewire, shujuchuli, xitongjicheng, biaodan, biaozhun, ACORD, jiekou, tech]
+    weight: 1.0
+  - id: knowledge
+    skill: ins-knowledge
+    keywords: [shenmeshi, shebao, yibao, fagui, shuyu, jichuzhishi, gainianjieshi, baoxianyuanli, knowledge]
+    weight: 1.0
+
+cross_skill_chains:
+  - scenario: "理赔申诉"
+    trigger: "lipei.*jubei|jupei.*shensu"
+    chain: [ins-claims, ins-underwriting, ins-compliance]
+  - scenario: "产品推荐+报价"
+    trigger: "tuijian.*chanpin|chanpin.*baojia"
+    chain: [ins-product, ins-marketing]
+  - scenario: "保单审查+续保"
+    trigger: "baodan.*shencha|baodan.*xubao"
+    chain: [ins-policy, ins-underwriting]
+  - scenario: "合规审计+风控"
+    trigger: "hegui.*shenji|shenji.*fengkong"
+    chain: [ins-compliance, ins-risk]
+  - scenario: "产品设计+定价"
+    trigger: "chanpin.*sheji|chanpin.*dingjia|xinchangpin.*kaifa"
+    chain: [ins-product, ins-actuarial, ins-compliance]
+
+fallback:
+  skill: ins-knowledge
+  message: "nin de wenti yi zhuan zhi zhishi baike jinxing jieda. ru xu geng jingzhun de huida, qing miaoshu gengduo xijie."

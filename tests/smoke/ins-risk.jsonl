@@ -1,0 +1,5 @@
+{"id": "rk-001", "category": "normal", "input": "评估某地区台风巨灾风险，历史10年损失数据", "expected_keywords": ["风险识别", "预期损失", "PML"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-002", "category": "normal", "input": "分析网络保险业务的数据安全风险", "expected_keywords": ["威胁评估", "控制措施", "残余风险"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-003", "category": "normal", "input": "评估气候变化对农业保险的影响", "expected_keywords": ["情景分析", "长期趋势", "定价调整"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-004", "category": "normal", "input": "检查是否超过某业务线的风险限额", "expected_keywords": ["限额对比", "超标预警", "建议行动"], "expected_structure": ["风险识别", "评估方法", "缓释建议"], "sub_skill": "ins-risk"}
+{"id": "rk-005", "category": "edge", "input": "输入的历史数据明显不足仅1年", "expected_keywords": ["数据质量", "模型局限", "补充数据"], "expected_structure": ["风险识别", "评估方法"], "sub_skill": "ins-risk"}

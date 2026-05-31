@@ -1,0 +1,5 @@
+{"id": "pr-001", "category": "normal", "input": "对比A公司重疾险和B公司重疾险", "expected_keywords": ["保障病种", "赔付次数", "等待期"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-002", "category": "normal", "input": "什么是百万医疗险？适合谁买？", "expected_keywords": ["定义", "保障范围", "免赔额", "适用人群"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-003", "category": "normal", "input": "给宝宝买保险，应该优先考虑什么？", "expected_keywords": ["需求排序", "推荐险种", "注意事项"], "expected_structure": ["产品对比", "适用人群", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-004", "category": "error", "input": "客户要求保证最好的产品", "expected_keywords": ["客观", "避免绝对化"], "expected_structure": ["产品对比", "注意事项"], "sub_skill": "ins-product"}
+{"id": "pr-005", "category": "edge", "input": "咨询一款已停售产品", "expected_keywords": ["停售", "替代产品"], "expected_structure": ["产品对比", "适用人群"], "sub_skill": "ins-product"}
