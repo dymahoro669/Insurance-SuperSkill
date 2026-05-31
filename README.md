@@ -51,7 +51,9 @@ Insurance-SuperSkill 是一个保险行业的平台型超级Skill生态系统，
 在 PowerShell 中执行：
 
 ```powershell
-irm https://raw.githubusercontent.com/dymahoro669/Insurance-SuperSkill/main/install.ps1 | iex
+$tmp = "$env:TEMP\ins-install.ps1"
+irm https://raw.githubusercontent.com/dymahoro669/Insurance-SuperSkill/main/install.ps1 -OutFile $tmp
+& $tmp
 ```
 
 ### 手动安装
