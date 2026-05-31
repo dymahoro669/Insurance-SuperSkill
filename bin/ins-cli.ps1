@@ -1,4 +1,4 @@
-#!/usr/bin/env pwsh
+﻿#!/usr/bin/env pwsh
 # Insurance-SuperSkill CLI 管理工具
 # 版本: 1.0.0
 # 支持17个命令: install, uninstall, status, list, validate, test, update, doctor, config, skill, route, evolve, audit, export, import, help, version
